@@ -32,7 +32,7 @@ class ProductInformationController extends BaseController
      */
     public function index(Request $request)
     {
-        $top_categories = $this->category_repository->getListCategories(0);
+        $top_categories = $this->category_repository->getChildListCategories(0);
         $product_category_id = $request->get('product_category_id','0');
         $product_category_id = $this->category_repository->getLastFirstCategoryId($product_category_id);
 
@@ -59,13 +59,6 @@ class ProductInformationController extends BaseController
             $data['category_html'] = $this->response->layout('render')
                 ->view('product.category_html')
                 ->data(compact('lists'))->render()->getContent();
-//            if($product_category_id)
-//            {
-//                $categories = $this->category_repository->getListCategories($product_category_id)->toArray();
-//            }else{
-//                $categories = [];
-//            }
-//            $data['categories'] = $categories;
 
             return $this->response
                 ->success()

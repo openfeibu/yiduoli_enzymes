@@ -11,7 +11,8 @@
                         <div class="layui-input-block">
                             <select name="parent_id" id="parent_id" lay-filter="parent_id">
                                 <option value="0">顶级</option>
-                                @foreach($product_categories as $key => $cat)
+                                @inject('productCategoryRepository','App\Repositories\Eloquent\ProductCategoryRepository')
+                                @foreach($productCategoryRepository->getCategories() as $key => $cat)
                                     <option value="{{ $cat['id'] }}">{!! $cat['name'] !!}</option>
                                 @endforeach
                             </select>

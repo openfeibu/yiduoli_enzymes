@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pc;
 
+use App\Repositories\Eloquent\ProductCategoryRepository;
 use Illuminate\Http\Request;
 use Route,Auth;
 use App\Models\Banner;
@@ -21,22 +22,7 @@ class HomeController extends BaseController
      */
     public function home(Request $request)
     {
-        $http_host = request()->server('HTTP_HOST');
-
-        if($http_host == setting('website'))
-        {
-            $lang = $request->get('lang','');
-            if(empty($lang) || ($lang != 'cn'))
-            {
-                $ip = $request->getClientIp();
-                $is_ip_in_china = is_ip_in_china($ip);
-                if(!$is_ip_in_china)
-                {
-                    return redirect(setting('sea_website'));
-                }
-            }
-        }
-
+        var_dump(app(ProductCategoryRepository::class)->getLastCategoriesProducts());
         $banners = Banner::orderBy('order','asc')->orderBy('id','asc')->get();
         return $this->response->title('首页')
             ->layout('home')

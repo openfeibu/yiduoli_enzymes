@@ -37,7 +37,7 @@ class AcademicReportController extends BaseController
         {
             return $this->product_academic_report($request,$product_id);
         }
-        $top_categories = $this->category_repository->getListCategories(0);
+        $top_categories = $this->category_repository->getChildListCategories(0);
         $product_category_id = $request->get('product_category_id','0');
         $product_category_id = $this->category_repository->getLastFirstCategoryId($product_category_id);
 

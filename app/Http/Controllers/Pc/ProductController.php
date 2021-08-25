@@ -33,8 +33,20 @@ class ProductController extends BaseController
      */
     public function index(Request $request)
     {
-        $top_categories = $this->category_repository->getListCategories(0);
-        $product_category_id = $request->get('product_category_id','0');
+        $top_categories = $this->category_repository->getChildListCategories(0);
+        $product_category_id = $request->get('product_category_id',$top_categories->toArray()[0]['id']);
+        $top_parent_id = $this->category_repository->getTopParentId($product_category_id);
+
+        $category = $this->category_repository->find($product_category_id);
+        //二级
+        if($top_parent_id == $product_category_id)
+        {
+            $secondary = $this->category_repository->getChildListCategories($product_category_id);
+        }
+        else{
+            $secondary = $this->category_repository->getChildListCategories($category->parent_id);
+        }
+
         $product_category_id = $this->category_repository->getLastFirstCategoryId($product_category_id);
 
         $lists = $this->category_repository->getLastFirstCategoryLists($product_category_id);
@@ -50,7 +62,7 @@ class ProductController extends BaseController
             {
                 $products = $products->whereIn('product_product_category.product_category_id',$ids);
             }
-            $children = $this->category_repository->getListCategories($product_category_id);
+            $children = $this->category_repository->getChildListCategories($product_category_id);
         }
         $top_product_category_id = ProductCategory::where('id',$product_category_id)->value('top_parent_id');
         $top_product_category_id = $top_product_category_id ? $top_product_category_id : $product_category_id;
@@ -76,8 +88,6 @@ class ProductController extends BaseController
                 ->view('product.category_html')
                 ->data(compact('lists'))->render()->getContent();
 
-            //$data['categories'] = $children;
-
             return $this->response
                 ->success()
                 ->data($data)
@@ -86,7 +96,7 @@ class ProductController extends BaseController
 
         return $this->response->title(trans('product.name'))
             ->view('product.index')
-            ->data(compact('products','top_categories','product_category_id','top_product_category_id','children','search_key','lists'))
+            ->data(compact('products','top_categories','product_category_id','top_product_category_id','children','secondary','search_key','lists'))
             ->output();
 
     }

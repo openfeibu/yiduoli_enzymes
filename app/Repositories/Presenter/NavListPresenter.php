@@ -76,7 +76,7 @@ class NavListPresenter extends FractalPresenter
             $i = 0;
             if($nav->slug == 'pc.product.index')
             {
-                $product_categories = app(ProductCategoryRepository::class)->getListCategories(0);
+                $product_categories = app(ProductCategoryRepository::class)->getChildListCategories(0);
                 foreach ($product_categories as $key => $category)
                 {
                     if($i == 0)
@@ -165,7 +165,7 @@ class NavListPresenter extends FractalPresenter
                 $i = 0;
                 if($nav->slug == 'pc.product.index')
                 {
-                    $product_categories = app(ProductCategoryRepository::class)->getListCategories(0);
+                    $product_categories = app(ProductCategoryRepository::class)->getChildListCategories(0);
                     foreach ($product_categories as $key => $category)
                     {
                         if($i == 0)
@@ -253,7 +253,7 @@ class NavListPresenter extends FractalPresenter
             $i = 0;
             if($nav->slug == 'pc.product.index')
             {
-                $product_categories = app(ProductCategoryRepository::class)->getListCategories(0);
+                $product_categories = app(ProductCategoryRepository::class)->getChildListCategories(0);
                 foreach ($product_categories as $key => $category)
                 {
                     if($i == 0)

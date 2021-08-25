@@ -30,7 +30,7 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
     }
     public function getAllCategories()
     {
-        $categories = $this->orderBy('order','desc')->orderBy('id','asc')->get()->toArray();
+        $categories = $this->where('hide',0)->orderBy('order','asc')->orderBy('id','asc')->get()->toArray();
         return $categories;
     }
     public function getCategoriesCache($parent_id=0)
@@ -42,18 +42,21 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
         Cache::forever('categories', $data);
         return $data;
     }
-    public function getListCategories($parent_id)
+
+    public function getChildListCategories($id)
     {
-        return $this->where('parent_id',$parent_id)->orderBy('order','desc')->orderBy('id','asc')->get();
+        return $this->where('hide',0)->where('parent_id',$id)->orderBy('order','asc')->orderBy('id','asc')->get();
     }
+
     public function getCategories($parent_id=0)
     {
         $data = [];
-        $categories = $this->where('parent_id',$parent_id)->orderBy('order','desc')->orderBy('id','asc')->get();
+        $categories = $this->where('hide',0)->where('parent_id',$parent_id)->orderBy('order','asc')->orderBy('id','asc')->get();
         foreach ($categories as $key => $category)
         {
             $data[$key] = [
                 'title' => $category->name,
+                'name' => $category->name,
                 'id' => $category->id,
                 'parent_id' => $category->parent_id,
                 'order' => $category->order,
@@ -77,11 +80,12 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
     {
 
         $data = [];
-        $categories = $this->where('parent_id',$parent_id)->orderBy('order','desc')->orderBy('id','asc')->get();
+        $categories = $this->where('hide',0)->where('parent_id',$parent_id)->orderBy('order','asc')->orderBy('id','asc')->get();
         foreach ($categories as $key => $category)
         {
             $data[$key] = [
                 'title' => $category->name,
+                'name' => $category->name,
                 'label' => $category->name,
                 'id' => $category->id,
                 'parent_id' => $category->parent_id,
@@ -110,7 +114,7 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
         {
             return 0;
         }
-        $parent = $this->where('id',$parent_id)->where('hide',0)->first(['id','parent_id']);
+        $parent = $this->where('hide',0)->where('id',$parent_id)->first(['id','parent_id']);
         if($parent->parent_id)
         {
             return $this->getTopParentId($parent->parent_id);
@@ -123,7 +127,7 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
         {
             return '';
         }
-        $category = $this->where('id',$id)->first(['id','parent_id']);
+        $category = $this->where('hide',0)->where('id',$id)->first(['id','parent_id']);
         $ids[] = $category->id;
         if($category->parent_id)
         {
@@ -134,7 +138,7 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
     }
     public function getFieldValue($category_id,$field)
     {
-        $category = $this->where('id',$category_id)->where('hide',0)->first(['id','parent_id',$field]);
+        $category = $this->where('hide',0)->where('id',$category_id)->first(['id','parent_id',$field]);
         if(!$category[$field])
         {
             if(!$category->parent_id)
@@ -145,40 +149,11 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
         }
         return $category[$field];
     }
-    public function getWeight($category_id)
-    {
-        $category = $this->where('id',$category_id)->first(['id','parent_id','weight']);
-
-        if(!$category->weight || $category->weight <= 0)
-        {
-            if(!$category->parent_id)
-            {
-                return 0;
-            }
-            return $this->getWeight($category->parent_id);
-        }
-        return $category->weight;
-    }
-    public function getFreightCategoryId($category_id)
-    {
-        $category = $this->where('id',$category_id)->first(['id','parent_id','freight_category_id']);
-
-        if(!$category->freight_category_id)
-        {
-            if(!$category->parent_id)
-            {
-                return 0;
-            }
-            return $this->getFreightCategoryId($category->parent_id);
-        }
-        return $category->freight_category_id;
-
-    }
 
 
 
     public function getSubIds($category_id=0,$sub_ids=[]){
-        $ids = ProductCategory::where('parent_id',$category_id)->pluck('id')->toArray();
+        $ids = ProductCategory::where('parent_id',$category_id)->where('hide',0)->pluck('id')->toArray();
         $sub_ids = array_merge($sub_ids,$ids);
         foreach ($ids as $key=> $id)
         {
@@ -186,16 +161,17 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
         }
         return $sub_ids;
     }
+    //根据id获取该类的子类第一个id，递归最终得到最后子类级第一个子类的id
     public function getLastFirstCategoryId($parent_id=0)
     {
-        $category = ProductCategory::where('parent_id',$parent_id)->where('hide',0)->orderBy('order','desc')->orderBy('id','asc')->first();
+        $category = ProductCategory::where('parent_id',$parent_id)->where('hide',0)->orderBy('order','asc')->orderBy('id','asc')->first();
         if(!$category)
         {
             return $parent_id;
         }
         return $this->getLastFirstCategoryId($category->id);
     }
-
+    //根据上面获取的id 反向推出各父类列表
     public function getLastFirstCategoryLists($id,$list=[])
     {
         $category = ProductCategory::where('id',$id)->first();
@@ -204,7 +180,7 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
         {
             return $list;
         }
-        $siblings =  ProductCategory::where('parent_id',$category->parent_id)->where('hide',0)->orderBy('order','desc')->orderBy('id','asc')->get()->toArray();
+        $siblings = $this->getChildListCategories($category->parent_id)->toArray();
 
         foreach ($siblings as $key => $sibling)
         {
@@ -219,6 +195,8 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
         return $this->getLastFirstCategoryLists($category->parent_id,$list);
 
     }
+
+
     public function removeParentId($ids)
     {
         foreach ($ids as $key => $id)
@@ -244,22 +222,43 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
             return $this->getBreadCrumbs($breadcrumbs,$product_category->parent_id);
         }
         return $breadcrumbs;
+    }
 
-        $top_product_category_id = app(ProductCategory::class)->where('id',$this->attributes['product_category_id'])->value('top_parent_id');
-        $top_product_category_id = $top_product_category_id ? $top_product_category_id : $this->attributes['product_category_id'];
-        if($top_product_category_id)
-        {
-            $top_product_category = app(ProductCategory::class)->where('id',$top_product_category_id)->first();
-            if($top_product_category)
+    //获取没有子级的类
+    public function getLastCategories($id=0, $list=[])
+    {
+        $categories = ProductCategory::where('parent_id',$id)->where('hide',0)->orderBy('order','asc')->orderBy('id','asc')->get()->toArray();
+        foreach ($categories as $key => $category){
+            $child = ProductCategory::where('parent_id',$category['id'])->value('id');
+            if(!$child)
             {
-                $arr[] = [
-                    'is_menu' => 1,
-                    'name' => $top_product_category->name ,
-                    'url' => '/product?product_category_id='.$top_product_category->id,
-                    'class' => 'top_product_category_name'
-                ];
-                $breadcrumbs = array_merge($breadcrumbs,$arr);
+                $list[] =$category;
+            }
+            else{
+                $list = $this->getLastCategories($category['id'],$list);
             }
         }
+        return $list;
+    }
+    //获取没有子级的类的产品
+    public function getLastCategoriesProducts($limit=4)
+    {
+        $categories = $this->getLastCategories();
+        foreach ($categories as $key => $category)
+        {
+            $ids = $this->getSubIds($category['id']);
+            array_unshift($ids,$category['id']);
+            $categories[$key]['products'] = Product::join('product_product_category','product_product_category.product_id','=','products.id')
+                ->whereIn('product_product_category.product_category_id',$ids)
+                ->groupBy('products.id')
+                ->orderBy('products.order','desc')
+                ->orderBy('products.created_at','desc')
+                ->orderBy('products.id','desc')
+                ->limit($limit)
+                ->get(['products.*'])
+                ->toArray();
+
+        }
+        return $categories;
     }
 }

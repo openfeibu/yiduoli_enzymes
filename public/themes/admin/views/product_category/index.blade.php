@@ -29,7 +29,7 @@
         tree.render({
             elem: '#product_category'
             ,data: data
-            ,edit: ['add', 'update', 'del'] //操作节点的图标
+            ,edit: ['update', 'del'] //操作节点的图标
             ,click: function(obj){
                 //layer.msg(JSON.stringify(obj.data));
                 var data = obj.data;
