@@ -1,10 +1,5 @@
 <div class="main">
-    <div class="layui-card fb-minNav">
-        <div class="layui-breadcrumb" lay-filter="breadcrumb" style="visibility: visible;">
-            <a href="index.html">主页</a><span lay-separator="">/</span>
-            <a><cite>{{ trans('app.edit') }}{{ trans('page.about.name') }}</cite></a>
-        </div>
-    </div>
+    {!! Theme::widget('breadcrumb')->render() !!}
     <div class="main_full">
         <div class="layui-col-md12">
             <div class="fb-main-table">

@@ -54,10 +54,10 @@ class ProductCategoryResourceController extends BaseController
             if(isset($attributes['split']['/']) && $attributes['split']['/'] == 'on')
             {
                 $product_categories = preg_split("/(\/|\n)/",$attributes['categories']);
-                //$product_en_categories = preg_split("/(\/|\n)/",$attributes['en_categories']);
+                $product_en_categories = preg_split("/(\/|\n)/",$attributes['en_categories']);
             }else{
                 $product_categories = preg_split("/(\n)/",$attributes['categories']);
-                //$product_en_categories = preg_split("/(\/|\n)/",$attributes['en_categories']);
+                $product_en_categories = preg_split("/(\/|\n)/",$attributes['en_categories']);
             }
 
             $parent_id = $attributes['parent_id'];
@@ -71,10 +71,11 @@ class ProductCategoryResourceController extends BaseController
             {
                 $data[] = [
                     'name' => trim($product_category),
-                   // 'en_name' => $product_en_categories[$key] ?? '',
+                    'en_name' => $product_en_categories[$key] ?? '',
                     'parent_id' => $parent_id,
                     'top_parent_id' => $top_parent_id,
                     'category_ids' => $product_category_ids,
+                    'description' => $attributes['description'] ?? ''
                 ];
             }
 

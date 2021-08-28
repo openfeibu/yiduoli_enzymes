@@ -61,12 +61,14 @@ return [
 
             $theme->asset()->usePath()->add('bootstrap_css', 'css/bootstrap.min.css');
             $theme->asset()->usePath()->add('fb-main_css', 'css/fb-main.css?v=2020082018');
+            $theme->asset()->usePath()->add('fb-adaptive_css', 'css/fb-adaptive.css?v=2020082018');
             $theme->asset()->usePath()->add('animate_css', 'css/animate.min.css');
             $theme->asset()->add('swiper_css', 'lib/swiper/swiper-3.4.2.min.css');
 
             $theme->asset()->usePath()->add('jquery_js', 'js/jquery.min.js');
             $theme->asset()->add('swiper_js', 'lib/swiper/swiper-3.4.2.jquery.min.js');
             $theme->asset()->usePath()->add('fb-main_js', 'js/fb-main.js');
+            $theme->asset()->usePath()->add('fb-gymcommon_js', 'js/fb-gymcommon.js');
             $theme->asset()->usePath()->add('wow_js', 'js/wow.min.js');
 
             $theme->asset()->container('player')->usePath()->add('player_js', 'js/player.js');

@@ -17,7 +17,7 @@ class AboutResourceController extends BaseController
     {
         parent::__construct($page);
         $this->slug = 'about';
-        $this->category_id = 25;
+        $this->category_id = 2;
         $this->url = guard_url('page/about/show');
         $this->title = trans('page.about.name');
         $this->view_folder = 'page.about';

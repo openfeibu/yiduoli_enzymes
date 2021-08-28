@@ -1,3 +1,47 @@
+<div class="proNav">
+    <div class="w1400">
+        <div class="allPro-btn">
+            <div class="proNav-all">全部产品</div>
+            <div class="proNav-list product-tab-list-common">
+                @foreach($last_categories_products as $key => $categories)
+                <div class="proNav-list-item">
+                    <a href="#">{{ $categories['name'] }}</a>
+                    <div class="proNav-last-box ">
+                        @foreach($categories['products'] as $product_key => $product)
+                        <div class="product-item clearfix col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <a href="{{ route('pc.product.show',$product['id']) }}">
+                                <div class="img"><img class="transition500" src="{{ url('image/original'.$product['image']) }}" alt=" {{ $product['title'] }}"></div>
+                                <div class="test transition">
+
+                                    <div class="title fb-overflow-1">
+                                        {{ $product['title'] }}
+                                    </div>
+
+                                </div>
+                                <div class="labelBox">
+                                    @foreach($product['tags_arr'] as $tag_key => $tag)
+                                    <span>{{ $tag }}</span>
+                                    @endforeach
+                                </div>
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        <ul class="fadeInRight animated" data-wow-duration="0.6s" data-wow-delay="0s">
+            @foreach($top_categories as $key => $category)
+            <li>
+                <a href="{{ route('pc.product.index',['product_category_id' => $category->id]) }}" target="_black">{{ $category['name'] }}</a>
+            </li>
+            @endforeach
+
+        </ul>
+
+    </div>
+</div>
 <div class="banner">
     <div class="swiper-container swiper-container-banner">
         <div class="swiper-wrapper">
@@ -12,237 +56,170 @@
 <!-- 关于我们 -->
 <div class="about">
     <div class="container w1400">
-        <div class="about-left col-lg-6 col-md-6 col-sm-12 wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".3s">
-            <a href="{{ setting('vr') }}" target="_blank">
-                <img class="transition" src="{!! theme_asset('images/vrBg.png') !!}" alt="" />
-                <div class="vr-text" >
-                    <div class="img animated fb-bounceIn " style='animation-iteration-count: infinite;'><img src="{!! theme_asset('images/VR.png') !!}" alt=""></div>
-                    <span>溢多利集团720°全景展示</span>
+        <div class="about-right col-lg-5 col-md-5 col-sm-12">
+            {!! page('home_about') !!}
+        </div>
+
+        <div class="page-news-video about-left col-lg-7 col-md-7 col-sm-12 col-xs-12  wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".6s">
+            <!-- <div class="about-pic col-lg-2 col-md-2 col-sm-2 col-xs-2">
+
+            </div> -->
+            <div class="about-img col-lg-12 col-md-12 col-sm-12 col-xs-12" vid="{{ setting('video_vid') }}" des="21">
+                <img class="transition" src="{{ url('image/original'.setting('video_poster')) }}" alt="" />
+                <div class="vr-text">
+                    <div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
                 </div>
-            </a>
-        </div>
-        <div class="about-right col-lg-6 col-md-6 col-sm-12">
-            <div class="con-title wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".4s">
-                <span class="transition500">About VTR</span>
-                <h1>广东溢多利生物科技股份有限公司</h1>
             </div>
-            <div class="about-con  wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".5s">
-                广东溢多利生物科技股份有限公司成立于1991年，总部位于广东省珠海市。公司专注于生物工程领域，研发并形成了生物酶制剂、生物医药、动物营养与健康三大系列产品线，同时为行业客户持续提供整体生物技术解决方案，是我国生物酶制剂行业龙头企业，全球极具竞争力的甾体激素医药企业，中国动物营养与健康领域领军企业。
-            </div>
-            <ul class="about-icon wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".6s">
-                <li class="col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-                    <a href="/about/profile">
-                        <img class="transition500" src="{!! theme_asset('images/i1.png') !!}" alt="">
-                        <p>企业概况</p>
-                    </a>
-                </li>
-                <li class="col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-                    <a href="/about/profile/170">
-                        <img class="transition500" src="{!! theme_asset('images/i3.png') !!}" alt="">
-                        <p>产业布局</p>
-                    </a>
-                </li>
-                <li class="col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-                    <a href="/course/development_course">
-                        <img class="transition500" src="{!! theme_asset('images/i4.png') !!}" alt="">
-                        <p>发展历程</p>
-                    </a>
-                </li>
-                <li class="col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-                    <a href="/course/enterprise_honor">
-                        <img class="transition500" src="{!! theme_asset('images/i5.png') !!}" alt="">
-                        <p>企业荣誉</p>
-                    </a>
-                </li>
-                <li class="col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-                    <a href="/news_center/video">
-                        <img class="transition500" src="{!! theme_asset('images/i2.png') !!}" alt="">
-                        <p>宣传视频</p>
-                    </a>
-                </li>
-            </ul>
         </div>
+
     </div>
 </div>
 <!-- 产品中心 -->
 <div class="product">
     <div class="container w1400">
-        <div class="con-title tip-title wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".3s">
-            <span  class="transition500">PRODUCT</span>
-            <h1>产品中心</h1>
+        <div class=" tip-title wow fadeInUp" data-wow-duration=".6s" data-wow-delay="0s">
+            <span class="transition500">COMPANY'S PRODUCT</span>
+            <div class="tip-title-l"></div>
+            <h1>溢多利产品</h1>
+            <div class="tip-title-r"></div>
         </div>
-        <div class="product-con ">
+        <div class="product-con">
+            <div class="product-tab wow fadeInUp" data-wow-duration=".6s" data-wow-delay=".2s">
+                <ul>
+                    @foreach($top_categories as $key => $top_category)
+                        <li @if($key == 0) class="active" @endif>
+                            {{ $top_category['name'] }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            @foreach($top_categories as $key => $top_category)
+            <div class="product-tab-des wow fadeInUp" data-wow-duration=".6s" data-wow-delay=".3s" @if($key == 0)style="display: block;" @else style="display: none;" @endif>
+                <div class="product-introduce col-lg-3 col-md-3 col-sm-12 col-xs-12 no-padding">
+                    <div class="img col-lg-12 col-md-12 col-sm-6 col-xs-6 no-padding"><img src="{{ url('image/original'.$top_category['image']) }}" alt=""></div>
+                    <div class="test col-lg-12 col-md-12 col-sm-6 col-xs-6 no-padding">
+                        <div class="test-t">
+                            <p>{{ $top_category['name'] }}</p>
+                            <span>{{ $top_category['en_name'] }}</span>
+                        </div>
+                        <div class="test-des">
+                            {{ $top_category['description'] }}
+                        </div>
+                    </div>
+                </div>
+                <div class="product-tab-right col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    @inject('productCategoryRepository','App\Repositories\Eloquent\ProductCategoryRepository')
+                    <div class="product-min-tab">
+                        <ul>
+                            <li class="active"><a href="{{ route('pc.product.index',['product_category_id' => $top_category['id']]) }}">全部</a></li>
+                            @foreach($productCategoryRepository->getChildListCategories($top_category['id']) as $key => $category)
+                            <li><a href="{{ route('pc.product.index',['product_category_id' => $category['id']]) }}">{{ $category['name'] }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="product-tab-list product-tab-list-common">
+                        @inject('productRepository','App\Repositories\Eloquent\ProductRepository')
+                        @foreach($productRepository->getProductByCategoryId($top_category['id']) as $product_key => $product)
+                        <div class="product-item clearfix col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                            <a href="{{ route('pc.product.show',$product['id']) }}">
+                                <div class="img"><img class="transition500" src="{{ url('image/original'.$product['image']) }}" alt=" {{ $product['title'] }}"></div>
+                                <div class="test transition">
 
-            @foreach(app('product_category_repository')->where('parent_id',0)->orderBy('order','desc')->orderBy('id','asc')->limit(4)->get() as $key => $category)
-            @if($key == 0)
-			<div class="product-item col-lg-4 col-md-4 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay=".5s">
-                <div class="product-item-box">
-                    <a href="{{ route('pc.product.index',['product_category_id' => $category->id]) }}">
-                        <div class="img"><img  class="transition500" src="{!! theme_asset('images/p2.png') !!}" alt=""></div>
-                        <p class="transition500 fb-overflow-2">{{ $category->name }}</p>
-                    </a>
+                                    <div class="title fb-overflow-1">
+                                        {{ $product['title'] }}
+                                    </div>
+
+                                </div>
+                                <div class="labelBox">
+                                    @foreach($product['tags_arr'] as $tag_key => $tag)
+                                        <span>{{ $tag }}</span>
+                                    @endforeach
+                                </div>
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
-            @elseif($key == 1)
-            <div class="product-item col-lg-4 col-md-4 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay=".4s">
-                <div class="product-item-box">
-                    <a href="{{ route('pc.product.index',['product_category_id' => $category->id]) }}">
-                        <div class="img" ><img class="transition500"  src="{!! theme_asset('images/p1.png') !!}" alt=""></div>
-                        <p class="transition500 fb-overflow-2">{{ $category->name }}</p>
-                    </a>
-                </div>
-            </div>
-            @elseif($key == 2)
-            <div class="product-item col-lg-4 col-md-4 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay=".6s">
-                <div class="product-item-box">
-                    <a href="{{ route('pc.product.index',['product_category_id' => $category->id]) }}">
-                        <div class="img"><img  class="transition500" src="{!! theme_asset('images/p4.png') !!}" alt=""></div>
-                        <p class="transition500 fb-overflow-2">{{ $category->name }}</p>
-                    </a>
-                </div>
-            </div>
-            @elseif($key == 3)
-            <!--
-            <div class="product-item col-lg-3 col-md-3 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay=".7s">
-                <div class="product-item-box">
-                    <a href="{{ route('pc.product.index',['product_category_id' => $category->id]) }}">
-                        <div class="img"><img  class="transition500" src="{!! theme_asset('images/p4.png') !!}" alt=""></div>
-                        <p class="transition500 fb-overflow-2">{{ $category->name }}</p>
-                    </a>
-                </div>
-            </div>
-            -->
-            @endif
             @endforeach
         </div>
     </div>
 </div>
-<!-- 研发创新 -->
-<div class="innovate">
-    <div class="innovate-bg">
-        <div class="container w1400">
-            <div class="con-title tip-title wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".3s">
-                <span  class="transition500">INNOVATE</span>
-                <h1>研发创新</h1>
-            </div>
-            <div class="innovate-con">
-                <div class="innovate-item col-lg-3 col-md-3 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay=".4s">
-                    <div class="number">
-                        <span >1</span>所
-                    </div>
-                    <div class="name">国家认定企业技术中心</div>
-                </div>
-                <div class="innovate-item col-lg-3 col-md-3 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay=".5s">
-                    <div class="number">
-                        <span >1</span>所
-                    </div>
-                    <div class="name">院士工作站</div>
-                </div>
-                <div class="innovate-item col-lg-3 col-md-3 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay="0.6s">
-                    <div class="number">
-                        <span >1</span>所
-                    </div>
-                    <div class="name">博士后科研工作站</div>
-                </div>
-                <div class="innovate-item col-lg-3 col-md-3 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay="0.7s">
-                    <div class="number">
-                        <span >10</span>所
-                    </div>
-                    <div class="name">省级工程中心</div>
-                </div>
-                <div class="innovate-item col-lg-3 col-md-3 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay="0.8s">
-                    <div class="number">
-                        <span >4</span>项
-                    </div>
-                    <div class="name">专有技术</div>
-                </div>
-                <div class="innovate-item col-lg-3 col-md-3 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay="0.9s">
-                    <div class="number">
-                        <span >11</span>项
-                    </div>
-                    <div class="name">核心技术</div>
-                </div>
-                <div class="innovate-item col-lg-3 col-md-3 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay="1s">
-                    <div class="number">
-                        <span >174</span>项
-                    </div>
-                    <div class="name">发明专利</div>
-                </div>
-                <div class="innovate-item col-lg-3 col-md-3 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay="1.1s">
-                    <div class="number">
-                        <span >300+</span>名
-                    </div>
-                    <div class="name">研发人员</div>
-                </div>
 
-            </div>
-        </div>
-    </div>
-</div>
-<!-- 集团子公司 -->
-<div class="branch">
+<!-- 新闻中心 -->
+<div class="new">
     <div class="container w1400">
-        <div class="con-title tip-title wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".3s">
-            <span  class="transition500">BRANCH</span>
-            <h1>溢多利旗下公司</h1>
+        <div class=" tip-title wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".3s">
+            <span class="transition500">CORPORATE NEWS</span>
+            <div class="tip-title-l"></div>
+            <h1>最新资讯</h1>
+            <div class="tip-title-r"></div>
         </div>
-        <div class="branch-con">
-            @foreach(app('subsidiary_repository')->orderBy('order','desc')->orderBy('id','asc')->limit(8)->get() as $key => $subsidiary)
-            <div class="branch-item col-lg-3 col-md-3 col-sm-6 col-xs-6 wow bounceIn animated" data-wow-duration=".6s" data-wow-delay=".4s">
-                <a href="{{ route('pc.subsidiary.show',['id' => $subsidiary->id]) }}">
-                    <div class="img"><img class="transition500" src="{{ url('image/original'.$subsidiary->image) }}" alt="{{ $subsidiary->name }}"></div>
-					<p class="transition500">{{ $subsidiary->name }}</p>
+        <div class="new-con clearfix">
+            @foreach(app('page_repository')->where('category_id',1)->where('home_recommend',1)->orderBy('created_at','desc')->limit(4)->get() as $key => $news)
+            <div class="new-item transition500 col-lg-3 col-md-3 col-sm-6 col-xs-6 wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".6s">
+                <a href="{{ route('pc.news.show',$news->id) }}">
+                    <div class="img"><img class="transition500" src="{!! $news->image_url !!}" alt=""></div>
+                    <div class="title transition500 fb-overflow-2">{{ $news->title }}</div>
+                    <div class="des transition500 fb-overflow-2">{{ cut_html_str($news->description,45) }}</div>
+                    <div class="date transition500">{{ $news->created_at->format('Y-m-d') }}</div>
                 </a>
             </div>
             @endforeach
         </div>
+
     </div>
 </div>
-<!-- 新闻中心 -->
-<div class="new">
-    <div class="container w1400">
-        <div class="con-title tip-title  wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".3s">
-            <span  class="transition500">NEW</span>
-            <a href="/news_center/news"><h1>新闻中心</h1></a>
+<!-- 留言 -->
+
+<div class="feedback">
+    <div id="feedback"></div>
+    <div class="w1400">
+        <div class=" tip-title wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".3s">
+            <span class="transition500">ONLINE MESSAGE</span>
+            <div class="tip-title-l"></div>
+            <h1>在线留言</h1>
+            <div class="tip-title-r"></div>
         </div>
-        <div class="new-con clearfix">
-            @foreach(app('page_repository')->where('category_id',1)->where('home_recommend',1)->orderBy('created_at','desc')->limit(5)->get() as $key => $news)
-            @if($key == 0)
-                <div class="new-left col-lg-6 col-md-6 col-sm-12 col-xs-12  wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".4s">
-                    <div class="new-big-item transition500">
-                        <a href="{{ route('pc.news.show',$news->id) }}">
-                            <div class="img"><img class="transition500" src="{!! $news->image_url !!}" alt=""></div>
-                            <div class="test">
-                                <div class="title fb-overflow-2 transition500">{{ $news->title }}</div>
-                                <div class="des">
-                                    <div class="date">{{ $news->created_at->format('Y-m-d') }}</div>
-                                    <div class="more"><span>阅读详情</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
 
-
+        <form class="feedbackBox wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".6s" action="#" class="clearfix" onsubmit="return postFeedback()">
+            <div class="clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 feedback-input">
+                    <input type="text" placeholder="姓名：" class="feedback-name" name="name">
                 </div>
-            @endif
-            @endforeach
-            <div class="new-right col-lg-6 col-md-6 col-sm-12 col-xs-12  wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".5s">
-                @foreach(app('page_repository')->where('category_id',1)->where('home_recommend',1)->orderBy('created_at','desc')->limit(5)->get() as $key => $news)
-                    @if($key != 0)
-                    <div class="new-item transition500 col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <a href="{{ route('pc.news.show',$news->id) }}">
-                            <div class="img"><img class="transition500"  src="{!! $news->image_url !!}" alt=""></div>
-                            <div class="title transition500 ">
-								<div class="t-name  fb-overflow-2">{{ $news->title }}</div>
-							</div>
-
-                        </a>
-                    </div>
-                    @endif
-                @endforeach
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 feedback-input">
+                    <input type="text" placeholder="联系方式：" class="feedback-phone" name="phone">
+                </div>
+                <!-- <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 feedback-input">
+                    <input type="text" placeholder="邮箱：" class="feedback-email" name="email">
+                </div> -->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 feedback-textarea">
+                    <textarea name="content" id="" cols="30" rows="10" placeholder="留言：" class="feedback-content"></textarea>
+                </div>
             </div>
-        </div>
+            <div class="error-des"></div>
+            <div class="feedback-btn">
+                <input type="submit" value="提交">
+            </div>
+        </form>
     </div>
+</div>
+<!-- 留言 -->
+<!-- 尾部 -->
+
+
+<!-- 视频 -->
+<div class="video-detail">
+    <div class="video-detail-close"></div>
+    <div id="video-detail-con">
+        <div class="video-close"></div>
+        <div id="playerBox">
+            <div id='player'></div>
+            <div class="des"></div>
+        </div>
+
+    </div>
+
 </div>
 
 <script>
@@ -250,9 +227,84 @@
         var mySwiper = new Swiper('.swiper-container-banner', {
             loop: true,
             autoplay: 6000,
-    
+            autoHeight: true,
             pagination: '.swiper-pagination-banner',
-            paginationClickable :true
+            paginationClickable: true
+        })
+
+        $(".video-detail .video-detail-close,#video-detail-con .video-close").on("click", function() {
+            $(".video-detail").hide();
+            $("#player").html("")
+        })
+        $(".page-news-video").on("click", function() {
+            var vid = $(this).attr("vid");
+            var des = $(this).attr("des");
+            $("#player").html("")
+            $(".video-detail").fadeIn(200)
+            var width = document.getElementById("playerBox").scrollWidth;
+            var height = width * 0.5625; // 16/9 = 0.5625;
+            var player = polyvPlayer({
+                wrap: '#player',
+                autoplay: false,
+                'width': width,
+                'height': height,
+                'vid': vid
+            });
+            $("#playerBox .des").text(des)
         })
     })
+    function postFeedback() {
+        var name = $(".feedback-name").val();
+        var phone = $(".feedback-phone").val();
+        // var email = $(".feedback-email").val();
+        var content = $(".feedback-content").val();
+        var myreg = /^[1][2,3,4,5,6,7,8,9][0-9]{9}$/;
+        var myreg2 = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        $(".error-des").hide().text("")
+        if (name.length == 0) {
+            $(".error-des").fadeIn().text("姓名不可为空")
+            return false
+        }
+        if (!myreg.test(phone)) {
+            $(".error-des").fadeIn().text("手机号码格式错误")
+            return false;
+        }
+        // if (!myreg2.test(email)) {
+        //     $(".error-des").fadeIn().text("邮箱格式错误")
+        //     return false;
+        // }
+        if (content.length <= 10) {
+            $(".error-des").fadeIn().text("留言内容不可小于10个字")
+            return false
+        }
+        $.ajax({
+            url: "{{ route('pc.feedback.store') }}",
+            data: {
+                'name': name,
+                'phone': phone,
+                // 'email': email,
+                'content': content,
+                '_token': "{!! csrf_token() !!}"
+            },
+            type: 'post',
+            dataType: "json",
+            success: function(data) {
+                if (data.code != 0) {
+                    fbAlert(data.message);
+                } else {
+                    fbAlert("提交成功");
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                responseText = $.parseJSON(jqXHR.responseText);
+                var message = responseText.msg;
+                if (!message) {
+                    message = '服务器错误';
+                }
+                fbAlert(message);
+            }
+        });
+        return false;
+    }
 </script>
+

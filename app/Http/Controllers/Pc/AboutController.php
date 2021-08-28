@@ -20,10 +20,9 @@ class AboutController extends BaseController
         $this->page_repository = $page_repository;
         $this->category_repository = $category_repository;
     }
-
-    public function chairman(Request $request)
+    public function index(Request $request)
     {
-        $slug = 'chairman';
+        $slug = 'about';
         $page =  $this->page_repository->findBySlug($slug);
 
         $route_name = Route::currentRouteName();
@@ -36,6 +35,5 @@ class AboutController extends BaseController
             ->data(compact('page','slug','nav','navs'))
             ->output();
     }
-
 
 }

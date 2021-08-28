@@ -11,9 +11,10 @@ use App\Http\Controllers\Pc\Controller as BaseController;
 
 class HomeController extends BaseController
 {
-    public function __construct()
+    public function __construct(ProductCategoryRepository $productCategoryRepository)
     {
         parent::__construct();
+        $this->productCategoryRepository = $productCategoryRepository;
     }
     /**
      * Show dashboard for each user.
@@ -22,12 +23,13 @@ class HomeController extends BaseController
      */
     public function home(Request $request)
     {
-        var_dump(app(ProductCategoryRepository::class)->getLastCategoriesProducts());
+        $top_categories = $this->productCategoryRepository->getChildListCategories(0);
+        $last_categories_products = $this->productCategoryRepository->getLastCategoriesProducts();
         $banners = Banner::orderBy('order','asc')->orderBy('id','asc')->get();
         return $this->response->title('首页')
             ->layout('home')
             ->view('home')
-            ->data(compact('banners'))
+            ->data(compact('banners','top_categories','last_categories_products'))
             ->output();
     }
 

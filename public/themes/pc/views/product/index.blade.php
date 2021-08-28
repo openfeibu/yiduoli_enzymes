@@ -1,21 +1,30 @@
-<!-- 内容 -->
 <div class="main">
 
     <div class="container w1400">
         {!! Theme::widget('WebBreadcrumb',['top_product_category_id' => $top_product_category_id])->render() !!}
 
-        @if(!$search_key)
-        <div class="screen wow fadeInUp animated " style="box-shadow: none;" data-wow-duration=".6s" data-wow-delay=".5s" id="category_html">
-            @include('product.category_html')
+        <div class="productList-tab wow fadeInUp" data-wow-duration=".6s" data-wow-delay=".4s">
+            <ul>
+                @foreach($top_categories as $key => $category)
+                <li  class="category_id @if($top_product_category_id == $category['id']) active @endif transition500" category_id="{{ $category['id'] }}" class="category_id">{{ $category['name'] }}</li>
+                @endforeach
+            </ul>
         </div>
-        @endif
     </div>
     <div class="product-main">
-        <div class="container w1400 product-list">
+
+        <div class="container w1400">
+
+            <div class="page-title clearfix wow fadeInLeft animated " data-wow-duration=".6s" data-wow-delay=".4s" id="category_html">
+                @include('product.category_html')
+            </div>
             @include('product.list')
+
         </div>
     </div>
 </div>
+
+
 <script>
     var url = "{{ route('pc.product.index') }}"
     var category_id;

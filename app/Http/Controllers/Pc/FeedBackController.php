@@ -44,7 +44,7 @@ class FeedBackController extends BaseController
         $rules = [
             'name' => "required",
             'phone' => "required|regex:/^1[3456789][0-9]{9}$/",
-            'email' => "required|email",
+            //'email' => "required|email",
             'content' => "required|min:20",
         ];
         $messages = [
@@ -65,7 +65,7 @@ class FeedBackController extends BaseController
         }
         $this->feedbackRepository->create($attributes);
 
-        return $this->response->message(trans('app.success.action'))
+        return $this->response->message("感谢您的留言！")
             ->status("success")
             ->code(0)
             ->url(url('/feedback/'))

@@ -36,7 +36,7 @@ class NewsController extends BaseController
             //->orderBy('order','desc')
             //->orderBy('created_at','desc')
             ->orderBy('id','desc')
-            ->paginate(6);
+            ->paginate(8);
 
         return $this->response->title(trans('news.name'))
             ->view('news.index')

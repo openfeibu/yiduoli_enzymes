@@ -44,7 +44,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">* {{ trans('nav.label.url') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="url" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('nav.label.url') }}" class="layui-input" >
+                            <input type="text" name="url" autocomplete="off" placeholder="请输入{{ trans('nav.label.url') }}" class="layui-input" >
                         </div>
                     </div>
                     <div class="layui-form-item">

@@ -85,4 +85,10 @@ return [
     'chairman' => [
         'name' => '董事长致辞'
     ],
+    'about' => [
+        'name' => '关于我们'
+    ],
+    'industrial_enzyme' => [
+        'name' => '工业酶'
+    ],
 ];

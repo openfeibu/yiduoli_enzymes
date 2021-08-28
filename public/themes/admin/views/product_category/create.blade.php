@@ -38,7 +38,7 @@
 
                         <div class="layui-form-mid layui-word-aux">批量（/或换行）</div>
                     </div>
-                    <!--
+
                     <div class="layui-form-item fb-form-item2">
                         <label class="layui-form-label">{{ trans('product_category.label.en_name') }}</label>
                         <div class="layui-input-block">
@@ -47,7 +47,20 @@
 
                         <div class="layui-form-mid layui-word-aux">批量（/或换行）</div>
                     </div>
-                    -->
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">{{ trans('app.image') }} <br>(343 X 252)</label>
+                        {!! $product_category->files('image')
+                        ->url($product_category->getUploadUrl('image'))
+                        ->uploader()!!}
+
+                    </div>
+                    <div class="layui-form-item fb-form-item2">
+                        <label class="layui-form-label">{{ trans('app.description') }}</label>
+                        <div class="layui-input-block">
+                            <textarea name="description" placeholder="" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
                     <div class="layui-form-item">
                         <label class="layui-form-label">排序</label>
                         <div class="layui-input-inline">

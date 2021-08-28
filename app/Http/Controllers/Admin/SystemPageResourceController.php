@@ -21,7 +21,7 @@ class SystemPageResourceController extends BaseController
         $this->repository = $page;
         $this->category_repository = $category_repository;
         $this->request = $request;
-        $this->category_slug = 'system';
+        $this->category_slug = 'system_page';
         $this->view_folder = $this->category_slug;
         $this->main_url = 'system_page';
         if($category_name = $this->request->input('category_name',''))

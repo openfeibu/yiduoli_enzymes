@@ -24,7 +24,7 @@ return [
         'visible'      => [],
         'guarded'      => ['*'],
         'dates'        => ['deleted_at'],
-        'fillable'     => ['product_category_id','order','title','description','content','image','vid','instruction','instruction_title','parameters','order'],
+        'fillable'     => ['product_category_id','order','title','description','content','image','vid','instruction','instruction_title','parameters','tags','order'],
         'translate'    => ['product_category_id','order','title','description','content','image','vid','instruction'],
         'upload_folder' => '/product',
         'encrypt'      => ['id'],
@@ -42,7 +42,8 @@ return [
         'visible'      => [],
         'guarded'      => ['*'],
         'slugs'        => [],
-        'fillable'     => [ 'name','en_name', 'order','parent_id','top_parent_id','category_ids'],
+        'fillable'     => [ 'name','en_name', 'description', 'image','order','parent_id','top_parent_id','category_ids'],
+        'upload_folder' => '/product',
         'encrypt'      => ['id'],
         'perPage'      => '20',
         'search'        => [

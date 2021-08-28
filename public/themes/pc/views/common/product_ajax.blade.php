@@ -5,7 +5,7 @@
         category_id = {{ $product_category_id  }};
 
         var  tab_num_arr = {'1':'one','2':'two' ,'3':'three','4':'four','5':'five'};
-        $("body").on("click",".screen .category-tab li", function () {
+        $("body").on("click",".category_id", function () {
             $(this).addClass("active").siblings("li").removeClass("active");
             category_id = $(this).attr('category_id');
             var type = $(this).attr('type');
@@ -22,7 +22,7 @@
 					hideLoading();
                     if(html)
                     {
-                        $(".product-list").html(html);
+                        $("#product-list").html(html);
                     }
                     $(".screen ul").each(function(index,el){
                         console.log(index)
@@ -33,7 +33,6 @@
                     });
 
                     $("#category_html").html(data.data.category_html);
-                    $(".top_product_category_name").html(data.data.top_product_category_name);
                 },
                 error : function (jqXHR, textStatus, errorThrown) {
                     responseText = $.parseJSON(jqXHR.responseText);

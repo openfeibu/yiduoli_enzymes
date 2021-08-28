@@ -33,4 +33,5 @@ class ProductCategory extends BaseModel
         }
         return implode(' - ',$parent_name_arr);
     }
+
 }

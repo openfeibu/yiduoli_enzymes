@@ -1,0 +1,358 @@
+@media (max-width: 1400px) {
+    .proNav ul li {
+        font-size: 14px;
+    }
+    .proNav ul li a {
+        padding: 0 30px;
+    }
+    .con-title {
+        height: auto;
+        padding-bottom: 40px;
+    }
+    .con-title h1 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    /* 960px new code */
+    body {
+        padding-top: 0.88rem;
+    }
+    .allPro-btn {
+        display: none;
+    }
+    .proNav ul {
+        width: 100%;
+    }
+    .proNav ul li {
+        float: left;
+        color: #fff;
+        margin: 0 2px;
+        text-align: center;
+        font-size: 0.24rem;
+        width: 20%;
+        margin: 0
+    }
+    .proNav ul li a {
+        padding: 0;
+    }
+    .about-right {
+        padding: 0;
+    }
+    .about-con {
+        font-size: 0.26rem;
+        line-height: 0.42rem;
+        margin-bottom: 0.3rem;
+    }
+    .about-icon li {
+        padding: 0 0.3rem 0 0 !important;
+    }
+    .about-icon li p {
+        font-size: 0.24rem;
+    }
+    .about-icon li span {
+        font-size: 0.6rem;
+    }
+    .about-pic {
+        background: url(../images/jk.png) no-repeat center/auto 150px;
+        height: 150px;
+    }
+    .about-left .vr-text {
+        top: 30%;
+        text-align: center;
+    }
+    .about-left .vr-text .img {
+        width: 1.17rem;
+    }
+    .about-left .vr-text span {
+        color: #fff;
+        font-size: 0.3rem;
+        line-height: 0.8rem;
+    }
+    .tip-title {
+        padding-bottom: 0.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .tip-title h1 {
+        font-size: 0.6rem;
+        margin: 0 0.1rem
+    }
+    .tip-title span {
+        font-size: 0.5rem;
+        top: 0.3rem
+    }
+    .tip-title .tip-title-l {
+        width: 20%;
+        height: 0.3rem;
+        background: url(../images/tip-title-l.png) no-repeat right 0.1rem/auto 0.2rem;
+        margin-top: 0.2rem;
+    }
+    .tip-title .tip-title-r {
+        width: 20%;
+        height: 0.3rem;
+        background: url(../images/tip-title-r.png) no-repeat left 0.1rem/auto 0.2rem;
+        margin-top: 0.2rem;
+    }
+    .product-tab {
+        height: 0.6rem;
+        width: 95%;
+        border-radius: 0.6rem;
+    }
+    .product-tab ul {
+        height: 0.5rem;
+        margin: 0.05rem 0;
+    }
+    .product-tab li {
+        width: 18%;
+        float: left;
+        text-align: center;
+        line-height: 0.5rem;
+        color: #1D2331;
+        font-size: 0.2rem;
+        cursor: pointer;
+        margin: 0 1%
+    }
+    .product-tab li.active {
+        background: #0B6CCB;
+        color: #fff;
+        border-radius: 0.6rem;
+    }
+    .product-tab-des {
+        margin-top: 0.5rem;
+    }
+    .product-introduce {
+        background: #0B6CCB;
+    }
+    .product-introduce .test .test-des {
+        display: none;
+    }
+    .product-introduce .test {
+        padding: 0
+    }
+    .product-introduce .test .test-t {
+        padding-left: 0.2rem;
+    }
+    .product-introduce .test .test-t p {
+        font-size: 0.4rem;
+    }
+    .product-introduce .test .test-t span {
+        font-size: 0.4rem;
+    }
+    .product-tab-right {
+        padding: 0
+    }
+    .product-min-tab {
+        margin-top: 0.2rem;
+    }
+    .product-min-tab ul li {
+        margin: 0 0.2rem;
+        color: #929FB9;
+        font-size: 0.24rem;
+        line-height: 0.6rem;
+    }
+    .product-tab-list-common .product-item .test {
+        font-size: 0.26rem;
+        line-height: 0.5rem;
+        margin: 0.1rem 0;
+    }
+    .product-tab-list-common .product-item .labelBox {
+        height: 0.3rem;
+    }
+    .product-tab-list-common .product-item .labelBox span {
+        color: #728ec8;
+        border: 1px solid #728ec8;
+        border-radius: 0;
+        padding: 0 0.05rem;
+        height: 0.3rem;
+        line-height: 0.3rem;
+        float: left;
+        font-size: 0.2rem;
+        margin-right: 0.1rem;
+    }
+    .product-tab-list-common .product-item {
+        margin: 0.1rem 0;
+    }
+    .new-con {
+        padding: 0.2rem 0;
+    }
+    .new-item {
+        margin-bottom: 0.2rem;
+        padding: 0;
+    }
+    .new-item .title {
+        font-size: 0.26rem;
+        line-height: 0.36rem;
+        min-height: 0.72rem;
+        margin: 0.2rem 0.2rem 0 0.2rem;
+    }
+    .new-item .des {
+        font-size: 0.2rem;
+        color: #4B5261;
+        line-height: 0.3rem;
+        margin: 0.1rem 0.2rem;
+    }
+    .new-item .date {
+        font-size: 0.2rem;
+        color: #4B5261;
+        line-height: 0.3rem;
+        padding: 0.1rem 0.2rem;
+        background: url(../images/jt.png) no-repeat 90% center /auto 0.1rem;
+    }
+    .feedback {
+        padding: 0.3rem 0.3rem
+    }
+    .feedback-des {
+        font-size: 0.26rem;
+        line-height: 0.42rem;
+    }
+    .feedback-input {
+        overflow: hidden;
+        height: 0.8rem;
+        line-height: 0.8rem;
+        margin-top: 0.26rem
+    }
+    .feedback-input input {
+        background: #fff;
+        border-radius: 2px;
+        width: 100%;
+        text-indent: 0.1rem;
+        font-size: 0.26rem;
+    }
+    .feedback-textarea {
+        overflow: hidden;
+        height: 2.38rem;
+        line-height: 0.8rem;
+        margin-top: 0.26rem;
+    }
+    .feedback-textarea textarea {
+        background: #fff;
+        border-radius: 0.02rem;
+        width: 100%;
+        font-size: 0.24rem;
+        padding: 0.1rem;
+        line-height: 0.42rem;
+        height: 2rem;
+    }
+    .feedback-btn {
+        width: 4rem;
+        height: 0.8rem;
+        background: #4083ff;
+        margin: 0.36rem auto;
+    }
+    .feedback-btn input {
+        background: none;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-size: 0.26rem;
+    }
+    .feedback-btn:hover {
+        opacity: 0.8;
+    }
+    .error-des {
+        text-align: center;
+        line-height: 0.42rem;
+        font-size: 0.26rem;
+        margin-top: 0.3rem;
+    }
+    .productList-tab {
+        height: 1rem;
+        width: 100%;
+        border-radius: 0.6rem;
+        padding: 0.2rem 0
+    }
+    .productList-tab ul {
+        height: 0.5rem;
+        margin: 0.05rem 0;
+    }
+    .productList-tab li {
+        float: left;
+        text-align: center;
+        line-height: 0.5rem;
+        color: #1D2331;
+        font-size: 0.2rem;
+        cursor: pointer;
+        margin: 0 1%;
+        padding: 0 0.1rem
+    }
+    .productList-tab li.active {
+        background: #0B6CCB;
+        color: #fff;
+        border-radius: 0.6rem;
+    }
+    .newList-con {
+        padding: 0.5rem 0;
+    }
+    .newList-item {
+        margin-bottom: 0.2rem;
+        padding: 0.05rem;
+    }
+    .newList-item:hover {
+        box-shadow: 0 5px 20px #eee;
+    }
+    .newList-item .img {
+        overflow: hidden;
+        width: 50%;
+        height: auto;
+        float: left;
+    }
+    .newList-item .test {
+        overflow: hidden;
+        padding: 0.1rem;
+    }
+    .newList-item .title {
+        font-size: 0.26rem;
+        color: #1D2331;
+        line-height: 0.36rem;
+        margin-bottom: 0.1rem;
+    }
+    .newList-item:hover .title {
+        color: #4083ff
+    }
+    .newList-item .des {
+        font-size: 0.22rem;
+        color: #4B5261;
+        line-height: 0.3rem;
+    }
+    .newList-item .date {
+        margin-top: 0.2rem;
+        font-size: 0.22rem;
+        color: #BDC6D9;
+        line-height: 0.3rem;
+        background: url(../images/jt.png) no-repeat 90% center /auto 0.1rem;
+    }
+    #pro-player {
+        height: 3.5rem;
+    }
+    .document-con {
+        padding: 0.2rem 0
+    }
+    .document-item {
+        padding: 0.2rem;
+        background-color: #fff;
+        border-radius: 0.05rem;
+        margin-bottom: 0.1rem;
+        height: 1.7rem;
+    }
+    .document-item .img {
+        height: 1.3rem;
+    }
+    .document-item .test p {
+        font-size: 0.28rem;
+        color: #1D2331;
+        margin: 0.1rem 0;
+    }
+    .document-item .test span {
+        font-size: 0.24rem;
+        color: #929FB9;
+    }
+    .document-item .down {
+        float: left;
+        width: 18%;
+        height: 100%;
+        background: url(../images/down.png) no-repeat center/20px auto;
+    }
+    /* 960px new code */
+}

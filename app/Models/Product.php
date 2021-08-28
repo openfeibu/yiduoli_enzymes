@@ -15,7 +15,7 @@ class Product extends BaseModel
 
     protected $config = 'model.product.product';
 
-    protected $appends = ['images','image','product_category_name','product_category_ids'];
+    protected $appends = ['images','image','product_category_name','product_category_ids','tags_arr'];
 
     public function getImagesAttribute()
     {
@@ -42,4 +42,9 @@ class Product extends BaseModel
     {
         return $this->attributes ? $this->product_categories()->pluck('product_category_id')->toArray() : [];
     }
+    public function getTagsArrAttribute()
+    {
+        return $this->attributes ? explode(',',$this->attributes['tags']) : [];
+    }
+
 }

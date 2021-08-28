@@ -42,6 +42,7 @@
                             <input type="text" name="email" lay-verify="email" autocomplete="off" placeholder="" class="layui-input" value="{{$company['email']}}">
                         </div>
                     </div>
+
                     <div class="layui-form-item">
                         <label class="layui-form-label">邮政编码</label>
                         <div class="layui-input-inline">
@@ -82,6 +83,19 @@
                         <label class="layui-form-label">营销服务中心传真</label>
                         <div class="layui-input-inline">
                             <input type="text" name="marketing_center_fax" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" value="{{$company['marketing_center_fax']}}">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">宣传视频封面</label>
+                        {!! $company['video_poster']->files('value')->field('video_poster')
+                        ->url($company['video_poster']->getUploadUrl('value'))
+                        ->uploader()!!}
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">宣传视频VID</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="video_vid" autocomplete="off" placeholder="请输入宣传视频链接" class="layui-input" value="{{$company['video_vid']}}">
                         </div>
                     </div>
 

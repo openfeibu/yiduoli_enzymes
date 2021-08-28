@@ -11,6 +11,7 @@ return [
         'instruction' => '电子说明书',
         'instruction_title' => '电子说明书标题',
         'parameters' => '参数',
+        'tags' => '标签',
     ],
     'message'     => [
         'nopage' => 'Page not found.',
