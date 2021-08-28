@@ -60,125 +60,21 @@
 
             </div>
             <div class="question clearfix wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".5s">
+                @foreach($questions as $key => $question)
                 <div class="blocl col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                     <div class="question-item ">
                         <div class="question-item-q">
-                            水产价格持续高位，而水产类饲料也供需紧张，请问公司有此类的饲料产品吗？
+                            {{ $question->question }}
                         </div>
                         <div class="question-item-a">
-                            您好，公司饲用酶制剂产品及功能性饲料添加剂产品包括畜禽、水产、反刍等多种类别，具体数据详见公司定期报告。感谢您的关注。
+                            {{ $question->answer }}
                         </div>
                         <div class="question-item-date">
-                            2021/8/26
+                            {{ $question->created_at->format('Y/m/d') }}
                         </div>
                     </div>
                 </div>
-                <div class="blocl col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                    <div class="question-item ">
-                        <div class="question-item-q">
-                            水产价格持续高位，而水产类饲料也供需紧张，请问公司有此类的饲料产品吗？
-                        </div>
-                        <div class="question-item-a">
-                            您好，公司饲用酶制剂产品及功能性饲料添加剂产品包括畜禽、水产、反刍等多种类别，具体数据详见公司定期报告。感谢您的关注。
-                        </div>
-                        <div class="question-item-date">
-                            2021/8/26
-                        </div>
-                    </div>
-                </div>
-                <div class="blocl col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                    <div class="question-item ">
-                        <div class="question-item-q">
-                            水产价格持续高位，而水产类饲料也供需紧张，请问公司有此类的饲料产品吗？
-                        </div>
-                        <div class="question-item-a">
-                            您好，公司饲用酶制剂产品及功能性饲料添加剂产品包括畜禽、水产、反刍等多种类别，具体数据详见公司定期报告。感谢您的关注。
-                        </div>
-                        <div class="question-item-date">
-                            2021/8/26
-                        </div>
-                    </div>
-                </div>
-                <div class="blocl col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                    <div class="question-item ">
-                        <div class="question-item-q">
-                            水产价格持续高位，而水产类饲料也供需紧张，请问公司有此类的饲料产品吗？
-                        </div>
-                        <div class="question-item-a">
-                            您好，公司饲用酶制剂产品及功能性饲料添加剂产品包括畜禽、水产、反刍等多种类别，具体数据详见公司定期报告。感谢您的关注。
-                        </div>
-                        <div class="question-item-date">
-                            2021/8/26
-                        </div>
-                    </div>
-                </div>
-                <div class="blocl col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                    <div class="question-item ">
-                        <div class="question-item-q">
-                            水产价格持续高位，而水产类饲料也供需紧张，请问公司有此类的饲料产品吗？
-                        </div>
-                        <div class="question-item-a">
-                            您好，公司饲用酶制剂产品及功能性饲料添加剂产品包括畜禽、水产、反刍等多种类别，具体数据详见公司定期报告。感谢您的关注。
-                        </div>
-                        <div class="question-item-date">
-                            2021/8/26
-                        </div>
-                    </div>
-                </div>
-                <div class="blocl col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                    <div class="question-item ">
-                        <div class="question-item-q">
-                            水产价格持续高位，而水产类饲料也供需紧张，请问公司有此类的饲料产品吗？
-                        </div>
-                        <div class="question-item-a">
-                            您好，公司饲用酶制剂产品及功能性饲料添加剂产品包括畜禽、水产、反刍等多种类别，具体数据详见公司定期报告。感谢您的关注。
-                        </div>
-                        <div class="question-item-date">
-                            2021/8/26
-                        </div>
-                    </div>
-                </div>
-                <div class="blocl col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                    <div class="question-item ">
-                        <div class="question-item-q">
-                            水产价格持续高位，而水产类饲料也供需紧张，请问公司有此类的饲料产品吗？
-                        </div>
-                        <div class="question-item-a">
-                            您好，公司饲用酶制剂产品及功能性饲料添加剂产品包括畜禽、水产、反刍等多种类别，具体数据详见公司定期报告。感谢您的关注。
-                        </div>
-                        <div class="question-item-date">
-                            2021/8/26
-                        </div>
-                    </div>
-                </div>
-                <div class="blocl col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                    <div class="question-item ">
-                        <div class="question-item-q">
-                            水产价格持续高位，而水产类饲料也供需紧张，请问公司有此类的饲料产品吗？
-                        </div>
-                        <div class="question-item-a">
-                            您好，公司饲用酶制剂产品及功能性饲料添加剂产品包括畜禽、水产、反刍等多种类别，具体数据详见公司定期报告。感谢您的关注。
-                        </div>
-                        <div class="question-item-date">
-                            2021/8/26
-                        </div>
-                    </div>
-                </div>
-                <div class="blocl col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                    <div class="question-item ">
-                        <div class="question-item-q">
-                            水产价格持续高位，而水产类饲料也供需紧张，请问公司有此类的饲料产品吗？
-                        </div>
-                        <div class="question-item-a">
-                            您好，公司饲用酶制剂产品及功能性饲料添加剂产品包括畜禽、水产、反刍等多种类别，具体数据详见公司定期报告。感谢您的关注。
-                        </div>
-                        <div class="question-item-date">
-                            2021/8/26
-                        </div>
-                    </div>
-                </div>
-
-
+                @endforeach
             </div>
         </div>
     </div>

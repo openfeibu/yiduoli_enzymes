@@ -122,6 +122,8 @@ Route::group([
     Route::resource('feedback', 'FeedbackResourceController');
     Route::post('/feedback/destroyAll', 'FeedbackResourceController@destroyAll')->name('feedback.destroy_all');
 
+    Route::resource('question', 'QuestionResourceController');
+    Route::post('/question/destroyAll', 'QuestionResourceController@destroyAll')->name('question.destroy_all');
 
 });
 

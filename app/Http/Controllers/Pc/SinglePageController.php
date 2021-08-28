@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pc;
 use App\Repositories\Eloquent\NavRepository;
 use App\Repositories\Eloquent\PageCategoryRepository;
 use App\Repositories\Eloquent\PageRepository;
+use App\Repositories\Eloquent\QuestionRepository;
 use Route,Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Pc\Controller as BaseController;
@@ -22,17 +23,16 @@ class SinglePageController extends BaseController
     }
     public function about(Request $request)
     {
-        $slug = 'about';
-        $page =  $this->page_repository->findBySlug($slug);
-
         $route_name = Route::currentRouteName();
         $nav = app(NavRepository::class)->where('slug',$route_name)->first();
 
         $navs = app(NavRepository::class)->where('parent_id',$nav->parent_id)->get();
 
-        return $this->response->title($page['title'])
+        $questions = app(QuestionRepository::class)->orderBy('id','asc')->get();
+
+        return $this->response->title("关于我们")
             ->view('about')
-            ->data(compact('page','slug','nav','navs'))
+            ->data(compact('nav','navs','questions'))
             ->output();
     }
     public function IndustrialEnzyme(Request $request)
