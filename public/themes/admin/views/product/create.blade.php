@@ -39,30 +39,7 @@
                         ->url($product->getUploadURL('images'))
                         ->uploaders()!!}
                     </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">{!! trans('product.label.parameters')!!}</label>
-                        <div class="layui-input-block parameters" >
-                            @for($i=0;$i<10;$i++)
-                            <div class="parameters_group">
-                            <input type="text" name="parameters_name[]" autocomplete="off" placeholder="参数名" class="layui-input" >:
-                            <input type="text" name="parameters_value[]" autocomplete="off" placeholder="参数值" class="layui-input" >
-                            </div>
-                            @endfor
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">{!! trans('product.label.instruction_title')!!}</label>
-                        <div class="layui-input-inline">
-                            <input type="text" name="instruction_title" autocomplete="off" placeholder="请输入{!! trans('product.label.instruction_title') !!}" class="layui-input" >
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">{{  trans('product.label.instruction') }}</label>
-                        {!! $product->files('instruction')
-                        ->url($product->getFileURL('instruction'))
-                        ->exts('pdf')
-                        ->uploaderFile()!!}
-                    </div>
+
                     <div class="layui-form-item layui-form-text">
                         <label class="layui-form-label">{{ trans('app.description') }}</label>
                         <div class="layui-input-block">
