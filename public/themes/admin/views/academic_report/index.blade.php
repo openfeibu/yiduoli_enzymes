@@ -37,7 +37,7 @@
                 {checkbox: true, fixed: true}
                 ,{field:'id',title:'ID', width:80, sort: true}
                 ,{field:'product_title',title:'{!! trans('product.label.title')!!}',templet:"<div><a href='{{ guard_url('product') }}/@{{ d.product.id }}' >@{{ d.product.title }}</a></div>"}
-                ,{field:'title',title:'{!! trans('app.title')!!}',edit:'text'}
+                ,{field:'title',title:'{!! trans('academic_report.label.title')!!}',edit:'text'}
                 ,{field:'file',title:'{{ trans('app.file') }}',templet:"<div><a href='/image/original/@{{ d.file }}' target='_blank'>@{{ d.file }}</a></div>"}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]

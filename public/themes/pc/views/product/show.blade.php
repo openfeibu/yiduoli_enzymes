@@ -40,21 +40,23 @@
                             <div id='pro-player'></div>
                         </div>
                         @endif
-                        @if($product->instruction)
+                        @if($academic_reports)
                         <div class="news-detail-right-t">产品文档</div>
                         <div class="document-con">
+                            @foreach($academic_reports as $academic_report_key => $academic_report)
                             <div class="document-item wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".1s">
                                 <div class="img">
                                     <img src="{!! theme_asset('images/pdf.png') !!}" alt="" />
                                 </div>
                                 <div class="test">
-                                    <p><a href="{{ url('/image/original'.$product->instruction) }}" target="_blank">{{ $product->instruction_title ?? $product->title  }}.pdf</a></p>
+                                    <p><a href="{{ url('/image/original'.$academic_report->file) }}" target="_blank">{{ $academic_report->title  }}.pdf</a></p>
                                     <span>{{ $product->created_at->format('Y-m-d') }}</span>
                                 </div>
                                 <div class="down">
-                                    <a href="{{ url('/image/download'.$product->instruction) }}"></a>
+                                    <a href="{{ url('/image/download'.$academic_report->file) }}"></a>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                         @endif
                     </div>
@@ -80,14 +82,14 @@
                             </div>
                             @endforeach
 
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
-
     </div>
-</div>
 </div>
 
 {!! Theme::asset()->container('player')->scripts() !!}

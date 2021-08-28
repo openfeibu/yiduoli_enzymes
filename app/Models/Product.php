@@ -44,7 +44,7 @@ class Product extends BaseModel
     }
     public function getTagsArrAttribute()
     {
-        return $this->attributes ? explode(',',$this->attributes['tags']) : [];
+        return $this->attributes && isset($this->attributes['tags']) ? explode(',',$this->attributes['tags']) : [];
     }
 
 }
