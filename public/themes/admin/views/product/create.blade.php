@@ -159,7 +159,7 @@
         inputTags.render({
             elem:'#inputTags',
             content: ['优良热稳定','产品耐酸性'],
-            aldaBtn: true,
+            aldaBtn: false,
             done: function(value){
                 console.log(value)
             }
