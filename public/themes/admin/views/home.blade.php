@@ -23,42 +23,13 @@
                 <div class="layui-col-sm6 layui-col-md3">
                     <div class="layui-card">
                         <div class="layui-card-header">
-                            <b>新闻总数</b>
+                            <b>资讯总数</b>
 							<label>(条)</label>
                             <span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
                         </div>
                         <div class="layui-card-body layuiadmin-card-list">
                             <p class="layuiadmin-big-font">{{ $news_count }}</p>
 
-                        </div>
-                    </div>
-                </div>
-                @endif
-                @if(Auth::user()->isSuperuser() || Auth::user()->hasPermission('video.index'))
-                <div class="layui-col-sm6 layui-col-md3">
-                    <div class="layui-card">
-                        <div class="layui-card-header">
-                            <b>视频总量</b>
-                            <label>(个)</label>
-                            <span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
-                        </div>
-                        <div class="layui-card-body layuiadmin-card-list">
-                            <p class="layuiadmin-big-font">{{ $video_count }}</p>
-
-                        </div>
-                    </div>
-                </div>
-                @endif
-                @if(Auth::user()->isSuperuser() || Auth::user()->hasPermission('page.company_announcement.index'))
-                <div class="layui-col-sm6 layui-col-md3">
-                    <div class="layui-card">
-                        <div class="layui-card-header">
-                            <b>公告总数</b>
-                            <label>(条)</label>
-                            <span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
-                        </div>
-                        <div class="layui-card-body layuiadmin-card-list">
-                            <p class="layuiadmin-big-font">{{ $company_announcement_count }}</p>
                         </div>
                     </div>
                 </div>
