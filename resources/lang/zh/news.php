@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'name'        => '公司动态',
-    'names'       => '公司动态',
+    'name'        => '资讯中心',
+    'names'       => '资讯中心',
     'label'       => [
 
     ],

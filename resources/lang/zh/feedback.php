@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'name'        => '投诉建议',
-    'names'       => '学术报告',
+    'name'        => '在线留言',
+    'names'       => '在线留言',
     'label'       => [
         'name'             => '姓名',
         'phone'             => '手机号码',

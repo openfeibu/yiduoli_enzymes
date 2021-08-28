@@ -37,13 +37,13 @@ class ResourceController extends BaseController
     public function home()
     {
         $news_count = Page::where('category_id',1)->count();
-        $video_count = Video::count();
         $product_count = Product::count();
-        $company_announcement_count = Page::where('category_id',30)->count();
         $feedbacks = Feedback::orderBy('id','desc')->limit(10)->get();
+        $today_feedback_count = Feedback::whereBetween('created_at',[date('Y-m-d 00:00:00'),date('Y-m-d 23:59:59')])->count();
+        $feedback_count = Feedback::count();
         return $this->response->title(trans('app.home'))
             ->view('home')
-            ->data(compact('news_count','video_count','product_count','company_announcement_count','feedbacks'))
+            ->data(compact('news_count','product_count','feedbacks','today_feedback_count','feedback_count'))
             ->output();
     }
     public function dashboard()
