@@ -70,16 +70,16 @@
                     <div class="news-detail-right pull-right">
                         <div class="news-detail-right-t">相关产品</div>
                         <div class="news-detail-right-c">
-                            @foreach($related_products as $key => $product)
-                            <div class="news-detail-right-c-item clearfix wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".1s">
-                                <a class="clearfix" href="{{ route('pc.product.show',$product->id) }}">
-                                    <div class="img"><img class="transition500" src="{{ '/image/original'.$product->image }}" alt="{{ $product->title }}"></div>
-                                    <div class="test">
-                                        <p class="fb-overflow-2">{{ $product->title }}</p>
-                                        <span>{{ $product->created_at->format('Y-m-d') }}</span>
-                                    </div>
-                                </a>
-                            </div>
+                            @foreach($related_products as $key => $related_product)
+                                <div class="news-detail-right-c-item clearfix wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".1s">
+                                    <a class="clearfix" href="{{ route('pc.product.show',$related_product->id) }}">
+                                        <div class="img"><img class="transition500" src="{{ '/image/original'.$related_product->image }}" alt="{{ $related_product->title }}"></div>
+                                        <div class="test">
+                                            <p class="fb-overflow-2">{{ $related_product->title }}</p>
+                                            <span>{{ $related_product->created_at->format('Y-m-d') }}</span>
+                                        </div>
+                                    </a>
+                                </div>
                             @endforeach
 
                         </div>
