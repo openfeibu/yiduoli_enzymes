@@ -3,52 +3,51 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\ResourceController as BaseController;
-use App\Models\Banner;
-use App\Repositories\Eloquent\BannerRepository;
+use App\Models\BannerVid;
+use App\Repositories\Eloquent\BannerVidRepository;
 use Illuminate\Http\Request;
 use Mockery\CountValidator\Exception;
 
 /**
  * Resource controller class for page.
  */
-class BannerResourceController extends BaseController
+class BannerVidResourceController extends BaseController
 {
     /**
      * Initialize page resource controller.
      *
-     * @param type BannerRepository $banner
+     * @param type BannerVidRepository $bannerVidRepository
      *
      */
-    public function __construct(BannerRepository $banner)
+    public function __construct(BannerVidRepository $bannerVidRepository)
     {
         parent::__construct();
-        $this->repository = $banner;
+        $this->repository = $bannerVidRepository;
         $this->repository
             ->pushCriteria(\App\Repositories\Criteria\RequestCriteria::class);
     }
     public function index(Request $request){
         if ($this->response->typeIs('json')) {
             $data = $this->repository
-                ->setPresenter(\App\Repositories\Presenter\BannerListPresenter::class)
                 ->orderBy('order','asc')
                 ->orderBy('id','asc')
                 ->get();
             return $this->response
                 ->success()
-                ->data($data['data'])
+                ->data($data->toArray())
                 ->output();
         }
-        return $this->response->title(trans('banner.name'))
-            ->view('banner.index')
+        return $this->response->title(trans('banner_vid.name'))
+            ->view('banner_vid.index')
             ->output();
     }
     public function create(Request $request)
     {
-        $banner = $this->repository->newInstance([]);
+        $banner_vid = $this->repository->newInstance([]);
 
-        return $this->response->title(trans('banner.name'))
-            ->view('banner.create')
-            ->data(compact('banner'))
+        return $this->response->title(trans('banner_vid.name'))
+            ->view('banner_vid.create')
+            ->data(compact('banner_vid'))
             ->output();
     }
     public function store(Request $request)
@@ -56,63 +55,63 @@ class BannerResourceController extends BaseController
         try {
             $attributes = $request->all();
 
-            $banner = $this->repository->create($attributes);
+            $banner_vid = $this->repository->create($attributes);
 
-            return $this->response->message(trans('messages.success.created', ['Module' => trans('banner.name')]))
+            return $this->response->message(trans('messages.success.created', ['Module' => trans('banner_vid.name')]))
                 ->code(0)
                 ->status('success')
-                ->url(guard_url('banner/' ))
+                ->url(guard_url('banner_vid/' ))
                 ->redirect();
         } catch (Exception $e) {
             return $this->response->message($e->getMessage())
                 ->code(400)
                 ->status('error')
-                ->url(guard_url('banner/'))
+                ->url(guard_url('banner_vid/'))
                 ->redirect();
         }
     }
-    public function show(Request $request,Banner $banner)
+    public function show(Request $request,BannerVid $banner_vid)
     {
-        if ($banner->exists) {
-            $view = 'banner.show';
+        if ($banner_vid->exists) {
+            $view = 'banner_vid.show';
         } else {
-            $view = 'banner.new';
+            $view = 'banner_vid.new';
         }
 
-        return $this->response->title(trans('app.view') . ' ' . trans('banner.name'))
-            ->data(compact('banner'))
+        return $this->response->title(trans('app.view') . ' ' . trans('banner_vid.name'))
+            ->data(compact('banner_vid'))
             ->view($view)
             ->output();
     }
-    public function update(Request $request,Banner $banner)
+    public function update(Request $request,BannerVid $banner_vid)
     {
         try {
             $attributes = $request->all();
 
-            $banner->update($attributes);
+            $banner_vid->update($attributes);
 
-            return $this->response->message(trans('messages.success.updated', ['Module' => trans('banner.name')]))
+            return $this->response->message(trans('messages.success.updated', ['Module' => trans('banner_vid.name')]))
                 ->code(0)
                 ->status('success')
-                ->url(guard_url('banner/'))
+                ->url(guard_url('banner_vid/'))
                 ->redirect();
         } catch (Exception $e) {
             return $this->response->message($e->getMessage())
                 ->code(400)
                 ->status('error')
-                ->url(guard_url('banner/'))
+                ->url(guard_url('banner_vid/'))
                 ->redirect();
         }
     }
-    public function destroy(Request $request,Banner $banner)
+    public function destroy(Request $request,BannerVid $banner_vid)
     {
         try {
-            $banner->forceDelete();
+            $banner_vid->forceDelete();
 
-            return $this->response->message(trans('messages.success.deleted', ['Module' => trans('banner.name')]))
+            return $this->response->message(trans('messages.success.deleted', ['Module' => trans('banner_vid.name')]))
                 ->status("success")
                 ->http_code(202)
-                ->url(guard_url('banner'))
+                ->url(guard_url('banner_vid'))
                 ->redirect();
 
         } catch (Exception $e) {
@@ -120,7 +119,7 @@ class BannerResourceController extends BaseController
             return $this->response->message($e->getMessage())
                 ->status("error")
                 ->code(400)
-                ->url(guard_url('banner'))
+                ->url(guard_url('banner_vid'))
                 ->redirect();
         }
     }
@@ -131,10 +130,10 @@ class BannerResourceController extends BaseController
             $ids = $data['ids'];
             $this->repository->forceDelete($ids);
 
-            return $this->response->message(trans('messages.success.deleted', ['Module' => trans('banner.name')]))
+            return $this->response->message(trans('messages.success.deleted', ['Module' => trans('banner_vid.name')]))
                 ->status("success")
                 ->http_code(202)
-                ->url(guard_url('banner'))
+                ->url(guard_url('banner_vid'))
                 ->redirect();
 
         } catch (Exception $e) {
@@ -142,7 +141,7 @@ class BannerResourceController extends BaseController
             return $this->response->message($e->getMessage())
                 ->status("error")
                 ->code(400)
-                ->url(guard_url('banner'))
+                ->url(guard_url('banner_vid'))
                 ->redirect();
         }
     }
