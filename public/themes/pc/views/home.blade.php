@@ -9,7 +9,7 @@
                     <div class="proNav-last-box ">
                         @foreach($categories['products'] as $product_key => $product)
                         <div class="product-item clearfix col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <a href="{{ route('pc.product.show',$product['id']) }}">
+                            <a href="{{ route('pc.product.show',$product['id']) }}" target="_black">
                                 <div class="img"><img class="transition500" src="{{ url('image/original'.$product['image']) }}" alt=" {{ $product['title'] }}"></div>
                                 <div class="test transition">
 
@@ -122,7 +122,7 @@
                         @inject('productRepository','App\Repositories\Eloquent\ProductRepository')
                         @foreach($productRepository->getProductByCategoryId($top_category['id']) as $product_key => $product)
                         <div class="product-item clearfix col-lg-4 col-md-4 col-sm-6 col-xs-6">
-                            <a href="{{ route('pc.product.show',$product['id']) }}">
+                            <a href="{{ route('pc.product.show',$product['id']) }}"  target="_black">
                                 <div class="img"><img class="transition500" src="{{ url('image/original'.$product['image']) }}" alt=" {{ $product['title'] }}"></div>
                                 <div class="test transition">
 
@@ -160,7 +160,7 @@
         <div class="new-con clearfix">
             @foreach(app('page_repository')->where('category_id',1)->where('home_recommend',1)->orderBy('created_at','desc')->limit(4)->get() as $key => $news)
             <div class="new-item transition500 col-lg-3 col-md-3 col-sm-6 col-xs-6 wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".6s">
-                <a href="{{ route('pc.news.show',$news->id) }}">
+                <a href="{{ route('pc.news.show',$news->id) }}"  target="_black">
                     <div class="img"><img class="transition500" src="{!! $news->image_url !!}" alt=""></div>
                     <div class="title transition500 fb-overflow-2">{{ $news->title }}</div>
                     <div class="des transition500 fb-overflow-2">{{ cut_html_str($news->description,45) }}</div>
