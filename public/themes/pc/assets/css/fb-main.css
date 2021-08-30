@@ -515,12 +515,15 @@ header.active .headerRight {
 .about-left img {
     width: 100%;
 }
-
+.video-play{
+	cursor:pointer;
+}
 .about-left .vr-text {
     position: absolute;
     width: 100%;
     top: 30%;
     text-align: center;
+	cursor:pointer;
 }
 
 .about-left .vr-text .img {
@@ -2296,18 +2299,19 @@ header.active .headerRight {
 }
 
 .product-tab-list-common .product-item .labelBox {
-    height: 24px;
+    height: 26px;
 }
 
 .product-tab-list-common .product-item .labelBox span {
     color: #728ec8;
     border: 1px solid #728ec8;
     border-radius: 5px;
-    padding: 0 9px;
+    padding: 0 5px;
     height: 24px;
     line-height: 24px;
     float: left;
-    margin-right: 5px;
+    margin-right: 3px;
+	margin-bottom:2px;
 }
 
 .allPro-btn {}
@@ -2699,6 +2703,10 @@ header.active .headerRight {
 }
 
 .bgf9{background:#f9f9f9}
+
+.swiper-pagination-about .swiper-pagination-bullet{
+	margin: 0 2.5px !important;
+}
 /* new code */
 
 
