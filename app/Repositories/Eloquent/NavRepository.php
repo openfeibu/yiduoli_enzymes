@@ -30,7 +30,7 @@ class NavRepository extends BaseRepository implements NavRepositoryInterface
     }
     public function top($category_id)
     {
-        return $this->where(['parent_id' => 0,'category_id' =>$category_id,'is_menu' => 1])->orderBy('order','asc')->orderBy('id','asc')->get();
+        return $this->where(['parent_id' => 0,'category_id' =>$category_id,'is_menu' => 1,'show' => 1])->orderBy('order','asc')->orderBy('id','asc')->get();
     }
 
     public function topParent($id)
@@ -44,11 +44,11 @@ class NavRepository extends BaseRepository implements NavRepositoryInterface
     }
     public function children($parent_id)
     {
-        return $this->where(['parent_id' => $parent_id])->orderBy('order','asc')->orderBy('id','asc')->get();
+        return $this->where(['parent_id' => $parent_id,'is_menu' => 1,'show' => 1])->orderBy('order','asc')->orderBy('id','asc')->get();
     }
     public function allNavs()
     {
-        return $this->orderBy('order','asc')->orderBy('id','asc')->get();
+        return $this->where(['show' => 1])->orderBy('order','asc')->orderBy('id','asc')->get();
     }
     /**
      * Permission Menus
