@@ -48,7 +48,7 @@ class ProductResourceController extends BaseController
         $search = $request->get('search',[]);
         if ($this->response->typeIs('json')) {
 
-            $products = Product::join('product_product_category','product_product_category.product_id','=','products.id')
+            $products = Product::leftJoin('product_product_category','product_product_category.product_id','=','products.id')
                 ->when($search ,function ($query) use ($search){
                     foreach($search as $field => $value)
                     {

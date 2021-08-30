@@ -135,7 +135,7 @@
         var inputTags = layui.inputTags;
         inputTags.render({
             elem:'#inputTags',
-            content: ['优良热稳定','产品耐酸性'],
+            content: {!! json_encode(product_tags()) !!},
             aldaBtn: false,
             done: function(value){
                 console.log(value)

@@ -953,3 +953,9 @@ function hash_get($hash_name,$key_name){
     $arr = json_decode($str,true);
     return $arr;
 }
+if (!function_exists('product_tags')) {
+    function product_tags()
+    {
+        return \App\Models\ProductTag::orderBy('id','asc')->pluck('name')->toArray();
+    }
+}
