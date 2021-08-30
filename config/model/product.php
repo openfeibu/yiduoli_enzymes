@@ -81,4 +81,19 @@ return [
             'title'  => 'like',
         ],
     ],
+    'product_tag' => [
+        'model'        => 'App\Models\ProductTag',
+        'table'        => 'product_tags',
+        'primaryKey'   => 'id',
+        'hidden'       => [],
+        'visible'      => [],
+        'guarded'      => ['*'],
+        'slugs'        => [],
+        'fillable'     => [ 'name'],
+        'encrypt'      => ['id'],
+        'perPage'      => '20',
+        'search'        => [
+            'name'  => 'like',
+        ],
+    ],
 ];

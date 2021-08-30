@@ -113,6 +113,9 @@ Route::group([
     Route::post('/product/destroyAll', 'ProductResourceController@destroyAll')->name('product.destroy_all');
     Route::post('/product/destroy_image', 'ProductResourceController@destroyImage');
 
+    Route::resource('product_tag', 'ProductTagResourceController');
+    Route::post('/product_tag/destroyAll', 'ProductTagResourceController@destroyAll')->name('product_tag.destroy_all');
+
     Route::resource('academic_report', 'AcademicReportResourceController');
     Route::post('/academic_report/destroyAll', 'AcademicReportResourceController@destroyAll')->name('academic_report.destroy_all');
 
