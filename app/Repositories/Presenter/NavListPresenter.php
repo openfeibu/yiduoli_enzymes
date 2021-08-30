@@ -163,6 +163,7 @@ class NavListPresenter extends FractalPresenter
                 $href = ($nav->slug == '#') || (!Route::has($nav->slug)) ? 'javascript:;' : $nav->url;
                 $html .= sprintf('<div class="footer-link-t"><a href="%s">%s %s</a></div>', $href, $nav->icon_html, $nav->name);
                 $i = 0;
+                /*
                 if($nav->slug == 'pc.product.index')
                 {
                     $product_categories = app(ProductCategoryRepository::class)->getChildListCategories(0);
@@ -185,7 +186,7 @@ class NavListPresenter extends FractalPresenter
                     $html .= '</div>';
                     continue;
                 }
-
+                */
                 if(!isset($nav->sub)) {
                     $html .= '</div>';
                     continue;
