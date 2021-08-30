@@ -67,25 +67,18 @@
 			<div class="about-img ">
 			 <div class="swiper-container swiper-container-about">
 				<div class="swiper-wrapper">
-				
-						<div class="swiper-slide">
-							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ setting('video_vid') }}" des="21">
-								<img class="transition" src="{{ url('image/original'.setting('video_poster')) }}" alt="" />
-								<div class="vr-text">
-									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ setting('video_vid') }}" des="21">
-								<img class="transition" src="{{ url('image/original'.setting('video_poster')) }}" alt="" />
-								<div class="vr-text">
-									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
-								</div>
-							</div>
-						</div>
-				
 
+                    @inject('bannerVidRepository','App\Repositories\Eloquent\BannerVidRepository')
+                    @foreach($bannerVidRepository->orderBy('order','asc')->orderBy('id','asc')->get() as $key=> $banner_vid)
+						<div class="swiper-slide">
+							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ $banner_vid->vid }}" des="{{ $banner_vid->name }}">
+								<img class="transition" src="{{ url('image/original'.$banner_vid->image) }}" alt="" />
+								<div class="vr-text">
+									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
+								</div>
+							</div>
+						</div>
+                    @endforeach
 				</div>
 				<div class="swiper-pagination swiper-pagination-about"></div>
 			</div></div>

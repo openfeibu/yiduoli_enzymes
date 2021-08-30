@@ -22,7 +22,7 @@ return [
         'visible'      => [],
         'guarded'      => ['*'],
         //'slugs'        => ['slug' => 'name'],
-        'fillable'     => ['vid','name','order'],
+        'fillable'     => ['vid','name','order','image'],
         'translate'    => [],
         'upload_folder' => '/banner_vid',
         'encrypt'      => ['id'],

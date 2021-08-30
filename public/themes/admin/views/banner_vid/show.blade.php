@@ -6,23 +6,22 @@
             <div class="fb-main-table">
                 <form class="layui-form" action="{{guard_url('banner_vid/'.$banner_vid->id)}}" method="post" lay-filter="fb-form">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">标题</label>
+                        <label class="layui-form-label">{{ trans('banner_vid.label.vid') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="title" value="{{ $banner_vid->title }}" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" >
+                            <input type="text" name="vid" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('banner_vid.label.vid') }}" class="layui-input" value="{{ $banner_vid->vid }}">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">图片<br>(1920 X 926)</label>
+                        <label class="layui-form-label">{{ trans('banner_vid.label.name') }}</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="name" lay-verify="required" placeholder="请输入{{ trans('banner_vid.label.name') }}" autocomplete="off" class="layui-input" value="{{ $banner_vid->name }}">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">{{ trans('app.image') }}<br></label>
                         {!! $banner_vid->files('image')
                         ->url($banner_vid->getUploadUrl('image'))
                         ->uploader()!!}
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">路径</label>
-                        <div class="layui-input-inline">
-                            <input type="text" name="url" value="{{ $banner_vid->url }}" placeholder="请输入路径" autocomplete="off" class="layui-input">
-                        </div>
-                        <div class="layui-form-mid layui-word-aux">必须含https://或http://</div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">排序</label>

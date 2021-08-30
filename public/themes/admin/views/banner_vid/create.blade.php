@@ -11,11 +11,18 @@
                             <input type="text" name="vid" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('banner_vid.label.vid') }}" class="layui-input" >
                         </div>
                     </div>
+
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('banner_vid.label.name') }}</label>
                         <div class="layui-input-inline">
                             <input type="text" name="name" lay-verify="required" placeholder="请输入{{ trans('banner_vid.label.name') }}" autocomplete="off" class="layui-input">
                         </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">{{ trans('app.image') }}<br></label>
+                        {!! $banner_vid->files('image')
+                        ->url($banner_vid->getUploadUrl('image'))
+                        ->uploader()!!}
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">排序</label>
