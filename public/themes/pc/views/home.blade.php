@@ -64,12 +64,32 @@
             <!-- <div class="about-pic col-lg-2 col-md-2 col-sm-2 col-xs-2">
 
             </div> -->
-            <div class="about-img col-lg-12 col-md-12 col-sm-12 col-xs-12" vid="{{ setting('video_vid') }}" des="21">
-                <img class="transition" src="{{ url('image/original'.setting('video_poster')) }}" alt="" />
-                <div class="vr-text">
-                    <div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
-                </div>
-            </div>
+			<div class="about-img ">
+			 <div class="swiper-container swiper-container-about">
+				<div class="swiper-wrapper">
+				
+						<div class="swiper-slide">
+							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ setting('video_vid') }}" des="21">
+								<img class="transition" src="{{ url('image/original'.setting('video_poster')) }}" alt="" />
+								<div class="vr-text">
+									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ setting('video_vid') }}" des="21">
+								<img class="transition" src="{{ url('image/original'.setting('video_poster')) }}" alt="" />
+								<div class="vr-text">
+									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
+								</div>
+							</div>
+						</div>
+				
+
+				</div>
+				<div class="swiper-pagination swiper-pagination-about"></div>
+			</div></div>
+          
         </div>
 
     </div>
@@ -148,7 +168,7 @@
     </div>
 </div>
 
-<!-- 新闻中心 -->
+<!-- 新闻中心
 <div class="new">
     <div class="container w1400">
         <div class=" tip-title wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".3s">
@@ -172,7 +192,7 @@
 
     </div>
 </div>
-<!-- 留言 -->
+留言 -->
 
 <div class="feedback">
     <div id="feedback"></div>
@@ -233,12 +253,18 @@
             pagination: '.swiper-pagination-banner',
             paginationClickable: true
         })
-
+		var mySwiper2 = new Swiper('.swiper-container-about', {
+            loop: true,
+            autoplay: 6000,
+            autoHeight: true,
+            pagination: '.swiper-pagination-about',
+            paginationClickable: true
+        })
         $(".video-detail .video-detail-close,#video-detail-con .video-close").on("click", function() {
             $(".video-detail").hide();
             $("#player").html("")
         })
-        $(".page-news-video").on("click", function() {
+        $(".video-play").on("click", function() {
             var vid = $(this).attr("vid");
             var des = $(this).attr("des");
             $("#player").html("")

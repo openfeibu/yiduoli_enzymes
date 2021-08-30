@@ -518,7 +518,7 @@ header.active .headerRight {
 
 .about-left .vr-text {
     position: absolute;
-    width: 80%;
+    width: 100%;
     top: 30%;
     text-align: center;
 }
