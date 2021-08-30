@@ -731,10 +731,10 @@ header.active .headerRight {
 .footer {
     background: url(../images/footerBg.jpg) no-repeat center /cover;
 }
-
+.footerlink{margin-top:30px}
 .footer-vision {
-    background: rgba(7, 9, 5, 0.8);
-    padding: 120px 0 80px 0;
+    
+    padding: 20px 0;
 }
 
 .footer-vision .code {
@@ -748,7 +748,7 @@ header.active .headerRight {
 }
 
 .vision-tip {
-    font-size: 44px;
+    font-size: 34px;
     color: #fff;
     position: relative;
     ;
@@ -763,7 +763,7 @@ header.active .headerRight {
     content: "";
     width: 840px;
     height: 16px;
-    background: #00e0e0;
+    background: #0B6CCB;
     position: absolute;
     left: 0;
     bottom: 5px;
@@ -784,6 +784,8 @@ header.active .headerRight {
 .footer-con-left {
     padding-left: 0;
     position: relative;
+	padding-top:20px;
+	height:285px;
 }
 
 .footer-con-left:after {
@@ -817,7 +819,7 @@ header.active .headerRight {
 
 .footer-con-right .footer-link {
     float: left;
-    width: 14.28%;
+    width: 18%;
     padding-left: 16px;
 }
 
@@ -2261,7 +2263,7 @@ header.active .headerRight {
     width: 650px;
     height: 560px;
     background: rgba(255, 255, 255, 0.9);
-    padding: 24px;
+    padding: 10px 30px;
     display: none;
     top: 0;
     left: 300px;
@@ -2285,8 +2287,8 @@ header.active .headerRight {
 .product-tab-list-common .product-item .test {
     text-align: left;
     color: #1D2331;
-    font-size: 24px;
-    line-height: 53px;
+    font-size: 18px;
+    line-height: 40px;
 }
 
 .product-tab-list-common .product-item:hover .test {
@@ -2626,7 +2628,7 @@ header.active .headerRight {
 
 #pro-player {
     height: 250px;
-    background-color: #fff;
+   
 }
 
 .question {
@@ -2740,7 +2742,7 @@ header.active .headerRight {
         padding: 50px 0;
     }
     .footer-vision {
-        padding: 120px 0 80px 0;
+        padding: 20px 0 20px 0;
     }
     .footer-vision .code {
         width: 130px;
@@ -3211,12 +3213,12 @@ header.active .headerRight {
         padding-right: 0.5rem;
     }
     .footer-con-right {
-        display: none;
+        
     }
     .footer-con-right a {}
     .footer-con-right .footer-link {
         float: left;
-        width: 14.28%;
+        width: 18%;
         padding-left: 0.16rem;
     }
     .footer-con-right .footer-link .footer-link-t {

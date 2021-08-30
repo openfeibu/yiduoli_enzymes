@@ -93,8 +93,9 @@
                     @endforeach
                 </ul>
             </div>
+			<div class="wow  fadeInUp" data-wow-duration=".6s" data-wow-delay=".3s">
             @foreach($top_categories as $key => $top_category)
-            <div class="product-tab-des wow fadeInUp" data-wow-duration=".6s" data-wow-delay=".3s" @if($key == 0)style="display: block;" @else style="display: none;" @endif>
+            <div class="product-tab-des  animated fadeInUp" @if($key == 0)style="display: block;" @else style="display: none;" @endif>
                 <div class="product-introduce col-lg-3 col-md-3 col-sm-12 col-xs-12 no-padding">
                     <div class="img col-lg-12 col-md-12 col-sm-6 col-xs-6 no-padding"><img src="{{ url('image/original'.$top_category['image']) }}" alt=""></div>
                     <div class="test col-lg-12 col-md-12 col-sm-6 col-xs-6 no-padding">
@@ -142,6 +143,7 @@
                 </div>
             </div>
             @endforeach
+			</div>
         </div>
     </div>
 </div>

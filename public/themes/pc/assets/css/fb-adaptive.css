@@ -354,5 +354,13 @@
         height: 100%;
         background: url(../images/down.png) no-repeat center/20px auto;
     }
+	.footer-con-left{
+	height:auto;
+	}
+	.footerlink{display:none;}
+	.footer-con-right,.footer-vision-slogan{padding:0}
+	.footer .code img{
+	margin: 0 auto;display:block;
+	}
     /* 960px new code */
 }

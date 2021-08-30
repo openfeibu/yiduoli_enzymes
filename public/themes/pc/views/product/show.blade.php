@@ -93,18 +93,7 @@
 </div>
 
 {!! Theme::asset()->container('player')->scripts() !!}
-<div class="video-detail">
-    <div class="video-detail-close"></div>
-    <div id="video-detail-con">
-        <div class="video-close"></div>
-        <div id="playerBox">
-            <div id='player'></div>
-            <div class="des">这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍这是介绍</div>
-        </div>
 
-    </div>
-
-</div>
 <script>
     $(function() {
         var mySwiper = new Swiper('.swiper-container-pro', {
@@ -115,11 +104,8 @@
             paginationClickable :true
         });
 
-       
-        $(".video-detail .video-detail-close,#video-detail-con .video-close").on("click",function(){
-            $(".video-detail").hide();
-			$("#player").html("")
-        })
+
+      
         /*
         $(".page-news-video").on("click",function(){
             var vid = $(this).attr("vid");
@@ -144,8 +130,7 @@
         var player = polyvPlayer({
             wrap: '#pro-player',
             autoplay: false,
-            // 'width': width,
-            // 'height': height,
+            height: '100%',
             'vid': '{{$product->vid }}'
         });
     
