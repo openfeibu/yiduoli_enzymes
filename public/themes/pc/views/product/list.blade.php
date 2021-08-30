@@ -2,7 +2,7 @@
     @if(count($products))
         @foreach($products as $key => $product)
             <div class="product-item clearfix col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                <a href="{{ route('pc.product.show',$product->id) }}">
+                <a href="{{ route('pc.product.show',$product->id) }}" target="_blank">
                     <div class="img"><img class="transition500" src="{{ '/image/original'.$product->image }}" alt="{{ $product->title }}"></div>
                     <div class="test transition">
 
