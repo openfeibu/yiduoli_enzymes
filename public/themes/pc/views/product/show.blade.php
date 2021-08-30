@@ -40,7 +40,7 @@
                             <div id='pro-player'></div>
                         </div>
                         @endif
-                        @if($academic_reports)
+                        @if(count($academic_reports))
                         <div class="news-detail-right-t">产品文档</div>
                         <div class="document-con">
                             @foreach($academic_reports as $academic_report_key => $academic_report)
