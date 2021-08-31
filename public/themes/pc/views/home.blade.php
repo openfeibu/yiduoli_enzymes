@@ -5,34 +5,34 @@
             <div class="proNav-list product-tab-list-common">
                 @foreach($last_categories_products as $key => $categories)
                 <div class="proNav-list-item">
-                    <a href="#">{{ $categories['name'] }}</a>
+                    <a href="{{ route('pc.category.index',$categories['id']) }}">{{ $categories['name'] }}</a>
                     <div class="proNav-last-box ">
-					@if(count($categories['products']))
-                        @foreach($categories['products'] as $product_key => $product)
-                        <div class="product-item clearfix col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <a href="{{ route('pc.product.show',$product['id']) }}" target="_black">
-                                <div class="img"><img class="transition500" src="{{ url('image/original'.$product['image']) }}" alt=" {{ $product['title'] }}"></div>
-                                <div class="test transition">
+                        @if(count($categories['products']))
+                            @foreach($categories['products'] as $product_key => $product)
+                                <div class="product-item clearfix col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <a href="{{ route('pc.product.show',$product['id']) }}" target="_black">
+                                        <div class="img"><img class="transition500" src="{{ url('image/original'.$product['image']) }}" alt=" {{ $product['title'] }}"></div>
+                                        <div class="test transition">
 
-                                    <div class="title fb-overflow-1">
-                                        {{ $product['title'] }}
-                                    </div>
+                                            <div class="title fb-overflow-1">
+                                                {{ $product['title'] }}
+                                            </div>
 
+                                        </div>
+                                        <div class="labelBox">
+                                            @foreach($product['tags_arr'] as $tag_key => $tag)
+                                                <span>{{ $tag }}</span>
+                                            @endforeach
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="labelBox">
-                                    @foreach($product['tags_arr'] as $tag_key => $tag)
-                                    <span>{{ $tag }}</span>
-                                    @endforeach
-                                </div>
-                            </a>
-                        </div>
-                        @endforeach
-					@else
-						<div class="nodata">
-							<div class="img "><img class="transition500" src="{{ '/image/original'.setting('logo') }}" alt=" "></div>
-							<div class="test">该分类没有产品，如有任何问题请联系我们</div>
-						</div>
-					@endif	
+                            @endforeach
+                        @else
+                            <div class="nodata">
+                                <div class="img "><img class="transition500" src="{{ '/image/original'.setting('logo') }}" alt=" "></div>
+                                <div class="test">该分类没有产品，如有任何问题请联系我们</div>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 @endforeach
@@ -74,25 +74,18 @@
 			<div class="about-img ">
 			 <div class="swiper-container swiper-container-about">
 				<div class="swiper-wrapper">
-				
-						<div class="swiper-slide">
-							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ setting('video_vid') }}" des="21">
-								<img class="transition" src="{{ url('image/original'.setting('video_poster')) }}" alt="" />
-								<div class="vr-text">
-									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ setting('video_vid') }}" des="21">
-								<img class="transition" src="{{ url('image/original'.setting('video_poster')) }}" alt="" />
-								<div class="vr-text">
-									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
-								</div>
-							</div>
-						</div>
-				
 
+                    @inject('bannerVidRepository','App\Repositories\Eloquent\BannerVidRepository')
+                    @foreach($bannerVidRepository->orderBy('order','asc')->orderBy('id','asc')->get() as $key=> $banner_vid)
+						<div class="swiper-slide">
+							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ $banner_vid->vid }}" des="{{ $banner_vid->name }}">
+								<img class="transition" src="{{ url('image/original'.$banner_vid->image) }}" alt="" />
+								<div class="vr-text">
+									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
+								</div>
+							</div>
+						</div>
+                    @endforeach
 				</div>
 				<div class="swiper-pagination swiper-pagination-about"></div>
 			</div></div>
