@@ -2,7 +2,7 @@
     <div class="nav-box transition500">
         <div class="wap-header">
             <span class="wapNav-close icon_close"></span>
-            <img src="{{ '/image/original'.setting('logo') }}" alt="Logo" class="wow fadeIn animated" data-wow-delay="0.2s" />
+            <a href="http://www.yiduoli.com/"><img src="{{ '/image/original'.setting('logo') }}" alt="Logo" class="wow fadeIn animated" data-wow-delay="0.2s" /></a>
         </div>
 
         <ul>

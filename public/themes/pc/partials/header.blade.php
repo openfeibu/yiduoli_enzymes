@@ -2,7 +2,7 @@
     <div class="headerBg transition500">
         <div class="container w1400">
             <div class="logo newLogo pull-left fadeInUp animated transition500">
-                <a href="{{ route('pc.home') }}">
+                <a href="http://www.yiduoli.com">
                     <h1 hidden="">{{ setting('station_name') }}</h1>
                     <img class="logo1" src="{{ '/image/original'.setting('logo') }}" alt="{{ setting('station_name') }}">
 
