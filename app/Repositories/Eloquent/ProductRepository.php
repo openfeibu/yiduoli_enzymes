@@ -22,6 +22,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         array_unshift($ids,$product_category_id);
         $products = $this->join('product_product_category','product_product_category.product_id','=','products.id')
             ->whereIn('product_product_category.product_category_id',$ids)
+            ->orderBy('products.order','desc')
             ->orderBy('products.created_at','desc')
             ->orderBy('products.id','desc')
             ->limit($limit)
