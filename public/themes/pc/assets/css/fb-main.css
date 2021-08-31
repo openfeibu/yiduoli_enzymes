@@ -524,6 +524,7 @@ header.active .headerRight {
     top: 30%;
     text-align: center;
 	cursor:pointer;
+	opacity：0.8
 }
 
 .about-left .vr-text .img {
@@ -2363,6 +2364,7 @@ header.active .headerRight {
     background: #0B6CCB;
     border-top: 9px solid #06D2E8;
     padding: 25px;
+	
 }
 
 .product-introduce .test .test-t {
@@ -2385,6 +2387,7 @@ header.active .headerRight {
     opacity: 0.8;
     margin: 25px;
     line-height: 26px;
+	min-height:300px
 }
 
 .product-min-tab {
