@@ -28,7 +28,9 @@
                         <div class="pro-title">{{ $product->title }}</div>
                         <div class="pro-des">{{ $product->description }}</div>
                         <div class="pro-btn clearfix">
-                            <div class="btn-buy transition500" onclick="alert('弹出聊天框')">购买产品</div>
+						  @foreach($academic_reports as $academic_report_key => $academic_report)
+                            <div class="btn-buy transition500" ><a style="color:#fff" href="{{ url('/image/original'.$academic_report->file) }}" target="_blank">{{ $academic_report->title  }}</a></div>
+						 @endforeach
                         </div>
                     </div>
                 </div>
@@ -40,7 +42,7 @@
                             <div id='pro-player'></div>
                         </div>
                         @endif
-                        @if(count($academic_reports))
+                       <!-- @if(count($academic_reports))
                         <div class="news-detail-right-t">产品文档</div>
                         <div class="document-con">
                             @foreach($academic_reports as $academic_report_key => $academic_report)
@@ -58,7 +60,7 @@
                             </div>
                             @endforeach
                         </div>
-                        @endif
+                        @endif-->
                     </div>
 
                     <div class="pro-detail-con-c-left pull-left">

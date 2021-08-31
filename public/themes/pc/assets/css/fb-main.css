@@ -1652,7 +1652,8 @@ header.active .headerRight {
 }
 
 .pro-detail-test .pro-btn .btn-buy {
-    width: 170px;
+    width: auto;
+	padding:0 20px;
     height: 46px;
     border-radius: 46px;
     background: #0B6CCB;

@@ -9,11 +9,11 @@
             <div class="code-img"><img src="{{ url('/image/original'.setting('wechat_qr_code')) }}" alt=""></div>
         </div>
     </div>
-    <div class="fixed-nav-item">
+  <!--  <div class="fixed-nav-item">
         <div class="fixed-nav-item-contact">
             <a href="/customer_service/contact_us"></a>
         </div>
-    </div>
+    </div>-->
     <div class="fixed-nav-item scrollT">
         <div class="fixed-nav-item-top">
 
