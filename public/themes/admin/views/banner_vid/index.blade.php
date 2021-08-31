@@ -39,7 +39,7 @@
                 ,{field:'vid',title:'{{ trans('banner_vid.label.vid') }}', sort: true}
                 ,{field:'name',title:'{{ trans('banner_vid.label.name') }}', sort: true}
                 ,{field:'image',title:'图片', width:200,toolbar:'#imageTEM',}
-                ,{field:'order',title:'排序', sort: true}
+                ,{field:'order',title:'排序', sort: true,edit:"text"}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]
             ,id: 'fb-table'
