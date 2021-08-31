@@ -7,6 +7,7 @@
                 <div class="proNav-list-item">
                     <a href="#">{{ $categories['name'] }}</a>
                     <div class="proNav-last-box ">
+					@if(count($categories['products']))
                         @foreach($categories['products'] as $product_key => $product)
                         <div class="product-item clearfix col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <a href="{{ route('pc.product.show',$product['id']) }}" target="_black">
@@ -26,6 +27,12 @@
                             </a>
                         </div>
                         @endforeach
+					@else
+						<div class="nodata">
+							<div class="img "><img class="transition500" src="{{ '/image/original'.setting('logo') }}" alt=" "></div>
+							<div class="test">该分类没有产品，如有任何问题请联系我们</div>
+						</div>
+					@endif	
                     </div>
                 </div>
                 @endforeach
@@ -67,18 +74,25 @@
 			<div class="about-img ">
 			 <div class="swiper-container swiper-container-about">
 				<div class="swiper-wrapper">
-
-                    @inject('bannerVidRepository','App\Repositories\Eloquent\BannerVidRepository')
-                    @foreach($bannerVidRepository->orderBy('order','asc')->orderBy('id','asc')->get() as $key=> $banner_vid)
+				
 						<div class="swiper-slide">
-							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ $banner_vid->vid }}" des="{{ $banner_vid->name }}">
-								<img class="transition" src="{{ url('image/original'.$banner_vid->image) }}" alt="" />
+							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ setting('video_vid') }}" des="21">
+								<img class="transition" src="{{ url('image/original'.setting('video_poster')) }}" alt="" />
 								<div class="vr-text">
 									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
 								</div>
 							</div>
 						</div>
-                    @endforeach
+						<div class="swiper-slide">
+							  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 video-play" vid="{{ setting('video_vid') }}" des="21">
+								<img class="transition" src="{{ url('image/original'.setting('video_poster')) }}" alt="" />
+								<div class="vr-text">
+									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
+								</div>
+							</div>
+						</div>
+				
+
 				</div>
 				<div class="swiper-pagination swiper-pagination-about"></div>
 			</div></div>

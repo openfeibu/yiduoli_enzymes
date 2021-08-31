@@ -50,7 +50,7 @@
 
                 </div>
             </div>
-            <div class="page-title clearfix wow fadeInLeft animated" data-wow-duration=".6s" data-wow-delay=".4s">
+          <!--  <div class="page-title clearfix wow fadeInLeft animated" data-wow-duration=".6s" data-wow-delay=".4s">
                 <div class="page-title-c pull-left">
                     <span>常见问题</span>
                 </div>
@@ -76,6 +76,8 @@
                 </div>
                 @endforeach
             </div>
+			
+			-->
         </div>
     </div>
 
