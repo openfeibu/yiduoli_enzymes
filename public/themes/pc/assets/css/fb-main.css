@@ -2710,6 +2710,8 @@ header.active .headerRight {
 .swiper-pagination-about .swiper-pagination-bullet{
 	margin: 0 2.5px !important;
 }
+.about-img .des{font-size:14px;line-height:40px;text-align:center;}
+.swiper-pagination-about{bottom:50px !important}
 /* new code */
 
 

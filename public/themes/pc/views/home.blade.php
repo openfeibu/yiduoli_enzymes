@@ -83,6 +83,7 @@
 								<div class="vr-text">
 									<div class="img animated fb-bounceIn" style='animation-iteration-count: infinite;'><img src="{{ theme_asset('images/play.png') }}" alt=""></div>
 								</div>
+								<div class="des">{{ $banner_vid->name }}</div>
 							</div>
 						</div>
                     @endforeach
@@ -168,7 +169,7 @@
     </div>
 </div>
 
-<!-- 新闻中心
+<!-- 新闻中心-->
 <div class="new">
     <div class="container w1400">
         <div class=" tip-title wow fadeInUp animated" data-wow-duration=".6s" data-wow-delay=".3s">
@@ -192,7 +193,7 @@
 
     </div>
 </div>
-留言 -->
+<!--留言 -->
 
 <div class="feedback">
     <div id="feedback"></div>
