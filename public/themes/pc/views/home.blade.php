@@ -262,7 +262,7 @@
         })
 		var mySwiper2 = new Swiper('.swiper-container-about', {
             loop: true,
-            autoplay: 6000,
+            autoplay: 4000,
             autoHeight: true,
             pagination: '.swiper-pagination-about',
             paginationClickable: true
