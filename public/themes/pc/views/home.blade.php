@@ -101,7 +101,7 @@
         <div class=" tip-title wow fadeInUp" data-wow-duration=".6s" data-wow-delay="0s">
             <span class="transition500">COMPANY'S PRODUCT</span>
             <div class="tip-title-l"></div>
-            <h1>溢多利产品</h1>
+            <h1>工业酶产品</h1>
             <div class="tip-title-r"></div>
         </div>
         <div class="product-con">
