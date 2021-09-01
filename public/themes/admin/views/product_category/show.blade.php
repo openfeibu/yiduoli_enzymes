@@ -50,6 +50,12 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
+                        <label class="layui-form-label"> {{ trans('product_category.label.total_order') }}</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="total_order" autocomplete="off" placeholder="" class="layui-input" lay-verify="number" value="{{$product_category->total_order}}">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
                         <div class="layui-input-block">
                             <button class="layui-btn layui-btn-submit" lay-submit="" lay-filter="demo1">{{ trans('app.submit_now') }}</button>
                         </div>

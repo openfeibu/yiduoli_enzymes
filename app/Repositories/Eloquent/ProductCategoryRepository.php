@@ -244,6 +244,8 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
     public function getLastCategoriesProducts($limit=4)
     {
         $categories = $this->getLastCategories();
+        $orders = array_column($categories,'total_order');
+        array_multisort($orders,SORT_ASC,$categories);
         foreach ($categories as $key => $category)
         {
             $ids = $this->getSubIds($category['id']);

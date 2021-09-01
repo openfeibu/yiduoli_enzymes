@@ -42,7 +42,7 @@ return [
         'visible'      => [],
         'guarded'      => ['*'],
         'slugs'        => [],
-        'fillable'     => [ 'name','en_name', 'description', 'image','order','parent_id','top_parent_id','category_ids'],
+        'fillable'     => [ 'name','en_name', 'description', 'image','order','total_order','parent_id','top_parent_id','category_ids'],
         'upload_folder' => '/product',
         'encrypt'      => ['id'],
         'perPage'      => '20',
