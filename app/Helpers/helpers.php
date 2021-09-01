@@ -959,3 +959,10 @@ if (!function_exists('product_tags')) {
         return \App\Models\ProductTag::orderBy('id','asc')->pluck('name')->toArray();
     }
 }
+if (! function_exists('is_mobile')) {
+    function is_mobile()
+    {
+        $agent = new \Jenssegers\Agent\Agent();
+        return $agent->isMobile();
+    }
+}
