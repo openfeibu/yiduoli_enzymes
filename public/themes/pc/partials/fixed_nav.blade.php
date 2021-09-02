@@ -41,3 +41,9 @@
     </div>
 </div>
 @endif
+@if(is_mobile())
+<script id="qd300905909263070e7dbbe8afaef2a73d6092563b78" src="https://wp.qiye.qq.com/qidian/3009059092/63070e7dbbe8afaef2a73d6092563b78" charset="utf-8" async defer></script>
+@else
+<script id="qd3009059092bbc44ee4bb98564e54b6f98853fa2140" src="https://wp.qiye.qq.com/qidian/3009059092/bbc44ee4bb98564e54b6f98853fa2140" charset="utf-8" async defer></script>
+@endif
+
