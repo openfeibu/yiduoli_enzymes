@@ -302,8 +302,8 @@
         //     $(".error-des").fadeIn().text("邮箱格式错误")
         //     return false;
         // }
-        if (content.length <= 10) {
-            $(".error-des").fadeIn().text("留言内容不可小于10个字")
+        if (content.length <= 4) {
+            $(".error-des").fadeIn().text("留言内容不可小于4个字")
             return false
         }
         $.ajax({

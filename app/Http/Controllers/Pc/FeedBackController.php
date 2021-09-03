@@ -9,6 +9,7 @@ use App\Repositories\Eloquent\PageRepository;
 use Route,Auth,Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Pc\Controller as BaseController;
+use Mail;
 
 class FeedBackController extends BaseController
 {
@@ -45,7 +46,7 @@ class FeedBackController extends BaseController
             'name' => "required",
             'phone' => "required|regex:/^1[3456789][0-9]{9}$/",
             //'email' => "required|email",
-            'content' => "required|min:20",
+            'content' => "required|min:4",
         ];
         $messages = [
             'name.required' => '姓名必填！',
@@ -53,7 +54,7 @@ class FeedBackController extends BaseController
             'email.required' => '邮箱必填！',
             'email.email' => '邮箱格式不正确！',
             'content.required' => '内容必填！',
-            'content.min' => '内容不得少于10个字！'
+            'content.min' => '内容不得少于4个字！'
         ];
         $validator = Validator::make($attributes, $rules,$messages);
         if ($validator->fails()) {
@@ -64,6 +65,17 @@ class FeedBackController extends BaseController
                 ->redirect();
         }
         $this->feedbackRepository->create($attributes);
+
+        $html = "<div class='1'>您好，有新的留言，请注意查看！<a href='".config('app.url')."/admin/feedback' target='_blank'>管理后台</a>";
+        $html .="<p>姓名：".$attributes['name']."</p>";
+        $html .="<p>手机号码：".$attributes['phone']."</p>";
+        $html .="<p>留言内容：".$attributes['content']."</p>";
+        $email = setting('notice_email');
+        $send = Mail::html($html, function($message) use($email) {
+            $message->from(config('mail.from')['address'],config('mail.from')['name']);
+            $message->subject('[留言]');
+            $message->to($email);
+        });
 
         return $this->response->message("感谢您的留言！")
             ->status("success")
