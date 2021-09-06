@@ -91,4 +91,7 @@ return [
     'industrial_enzyme' => [
         'name' => '工业酶'
     ],
+    'industrial_enzyme_image' => [
+        'name' => '设备图片'
+    ]
 ];

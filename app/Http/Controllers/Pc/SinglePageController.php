@@ -50,4 +50,19 @@ class SinglePageController extends BaseController
             ->data(compact('page','slug','nav','navs'))
             ->output();
     }
+    public function IndustrialEnzymeImage(Request $request)
+    {
+        $slug = 'industrial_enzyme_image';
+        $page =  $this->page_repository->findBySlug($slug);
+
+        $route_name = Route::currentRouteName();
+        $nav = app(NavRepository::class)->where('slug',$route_name)->first();
+
+        $navs = app(NavRepository::class)->where('parent_id',$nav->parent_id)->get();
+
+        return $this->response->title($page['title'])
+            ->view('industrial_enzyme')
+            ->data(compact('page','slug','nav','navs'))
+            ->output();
+    }
 }

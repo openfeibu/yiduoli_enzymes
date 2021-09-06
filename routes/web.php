@@ -68,6 +68,12 @@ Route::group([
         Route::post('/industrial_enzyme/store', 'IndustrialEnzymeResourceController@store')->name('industrial_enzyme.store');
         Route::put('/industrial_enzyme/update/{page}', 'IndustrialEnzymeResourceController@update')->name('industrial_enzyme.update');
 
+        /*工业酶设备图片*/
+        Route::get('/industrial_enzyme_image', 'IndustrialEnzymeImageResourceController@show')->name('industrial_enzyme_image.index');
+        Route::get('/industrial_enzyme_image/show', 'IndustrialEnzymeImageResourceController@show')->name('industrial_enzyme_image.show');
+        Route::post('/industrial_enzyme_image/store', 'IndustrialEnzymeImageResourceController@store')->name('industrial_enzyme_image.store');
+        Route::put('/industrial_enzyme_image/update/{page}', 'IndustrialEnzymeImageResourceController@update')->name('industrial_enzyme_image.update');
+
         /*企业概况*/
         Route::resource('profile', 'ProfileResourceController');
         Route::post('/profile/destroyAll', 'ProfileResourceController@destroyAll')->name('profile.destroy_all');
@@ -140,7 +146,9 @@ Route::group([
     Route::get('/','HomeController@home')->name('home');
 
     Route::get('/about','SinglePageController@about')->name('about');
+    Route::get('/enzyme','SinglePageController@IndustrialEnzyme')->name('enzyme');
     Route::get('/industrial_enzyme','SinglePageController@IndustrialEnzyme')->name('industrial_enzyme');
+    Route::get('/industrial_enzyme_image','SinglePageController@IndustrialEnzymeImage')->name('industrial_enzyme_image');
 
     Route::get('/#feedback','HomeController@home')->name('feedback');
     Route::get('/news_center',function (){
