@@ -69,6 +69,7 @@
                             {!! $product->content !!}
                         </div>
                     </div>
+                    @if(count($related_products))
                     <div class="news-detail-right pull-right">
                         <div class="news-detail-right-t">相关产品</div>
                         <div class="news-detail-right-c">
@@ -86,6 +87,7 @@
 
                         </div>
                     </div>
+                    @endif
                 </div>
 
             </div>
