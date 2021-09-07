@@ -191,7 +191,7 @@ class NavListPresenter extends FractalPresenter
                     $html .= '</div>';
                     continue;
                 }
-
+/*
                 foreach ($nav->sub as $sub) {
                     if(!$sub->is_menu)
                     {
@@ -213,6 +213,7 @@ class NavListPresenter extends FractalPresenter
                     $html .= sprintf('<li class="'.$class.'"><a href="%s">%s %s</a></li>', $href, $icon, $sub->name);
                     $i++;
                 }
+*/
                 if($i)
                 {
                     $html .= '</ul>';
