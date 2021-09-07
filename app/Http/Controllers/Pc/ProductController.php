@@ -98,12 +98,14 @@ class ProductController extends BaseController
     }
     public function show(Request $request ,Product $product)
     {
+        $product_category_ids = $product->product_category_ids;
         $related_products = $this->product_repository
-            ->where('product_category_id',$product->product_category_id)
-            ->orderBy('created_at','desc')
-            ->orderBy('id','desc')
+            ->join('product_product_category','product_product_category.product_id','=','products.id')
+            ->whereIn('product_product_category.product_category_id',$product_category_ids)
+            ->orderBy('products.created_at','desc')
+            ->orderBy('products.id','desc')
             ->limit(5)
-            ->get();
+            ->get(['products.*']);
         $academic_reports = $this->academicReportRepository->where('product_id',$product->id)->orderBy('created_at','desc')->orderBy('id','desc')->get();
         return $this->response->title($product['title'])
             ->view('product.show')
