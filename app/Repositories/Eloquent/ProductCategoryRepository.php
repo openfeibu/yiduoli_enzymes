@@ -256,7 +256,7 @@ class ProductCategoryRepository extends BaseRepository implements ProductCategor
                 ->orderBy('products.order','desc')
                 ->orderBy('products.created_at','desc')
                 ->orderBy('products.id','desc')
-                ->limit($limit)
+                //->limit($limit)
                 ->get(['products.*'])
                 ->toArray();
 

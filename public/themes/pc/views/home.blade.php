@@ -6,7 +6,7 @@
                 @foreach($last_categories_products as $key => $categories)
                 <div class="proNav-list-item">
                     <a href="{{ route('pc.product.index',['product_category_id' => $categories['id']]) }}" target="_blank">{{ $categories['name'] }}</a>
-                    <div class="proNav-last-box ">
+                    <div class="proNav-last-box " style="overflow: auto;">
                         @if(count($categories['products']))
                             @foreach($categories['products'] as $product_key => $product)
                                 <div class="product-item clearfix col-lg-6 col-md-6 col-sm-6 col-xs-6">
