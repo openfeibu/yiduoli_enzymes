@@ -9,8 +9,12 @@ $(function() {
                 if (!$(".scrollT").hasClass("active")) {
                     $(".scrollT").addClass("active");
                 }
+				if (!$("header").hasClass("active")) {
+                    $("header").addClass("active");
+                }
             } else {
                 $(".scrollT").removeClass("active");
+				 $("header").removeClass("active");
             }
         })
         //PC导航栏
