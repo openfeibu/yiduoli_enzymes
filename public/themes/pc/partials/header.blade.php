@@ -1,4 +1,4 @@
-<header class=" navbar-fixed-top animated" data-wow-duration=".6s" data-wow-delay=".3s">
+<header class=" navbar-fixed-top animated transition500	" data-wow-duration=".6s" data-wow-delay=".3s">
     <div class="headerBg transition500">
         <div class="container w1400">
             <div class="logo newLogo pull-left fadeInUp animated transition500">
