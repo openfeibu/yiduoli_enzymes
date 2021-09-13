@@ -53,3 +53,22 @@
 <script src="https://player.polyv.net/script/player.js"></script>
 <script src="http://player.polyv.net/script/polyvplayer.min.js"></script>
 <script src="https://player.polyv.net/script/polyvplayer.min.js"></script>
+<script>
+
+var _hmt = _hmt || [];
+
+(function() {
+
+  var hm = document.createElement("script");
+
+  hm.src = "https://hm.baidu.com/hm.js?c352f835d9eeea1db088776d93445c40";
+
+  var s = document.getElementsByTagName("script")[0]; 
+
+  s.parentNode.insertBefore(hm, s);
+
+})();
+
+</script>
+
+
